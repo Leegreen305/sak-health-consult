@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAK Health Consult — Healthcare Beyond Walls | Tarkwa, Ghana</title>
+    <meta name="description"
+        content="SAK Health Consult delivers quality home healthcare, medical supplies, health education and screenings directly to you in Tarkwa and beyond. Available 24/7.">
+    <meta property="og:title" content="SAK Health Consult — Healthcare Beyond Walls">
+    <meta property="og:description"
+        content="Quality medical care, education and supplies delivered to you wherever you are in Tarkwa and beyond.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sakhealthconsult.com">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ======================== HEADER ======================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="SAK Health Consult" class="logo-img">
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge hidden">0</span>
+                </a>
+                <a href="book.html" class="btn-nav-cta">Book Appointment</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="book.html" class="btn-nav-cta">Book Appointment</a>
+    </nav>
+
+    <main>
+
+        <!-- ======================== HERO ======================== -->
+        <section class="hero">
+            <img src="images/hero-bg.jpg" alt="" class="hero-bg-img" aria-hidden="true">
+            <div class="hero-overlay"></div>
+            <div class="hero-pattern"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Healthcare<br>Beyond Walls</h1>
+                    <p class="hero-subtitle">Quality medical care, education and supplies delivered to you wherever you
+                        are in Tarkwa and beyond.</p>
+                    <div class="hero-buttons">
+                        <a href="book.html" class="btn btn-outline-white btn-lg">Book a Service</a>
+                        <a href="shop.html" class="btn btn-accent btn-lg">Shop Medical Supplies</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== SERVICES OVERVIEW ======================== -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Our Services</span>
+                    <h2>What We Offer</h2>
+                    <p>From your doorstep to your community — we bring world-class healthcare services directly to you,
+                        wherever you are.</p>
+                </div>
+
+                <div class="grid-4">
+                    <div class="card service-card fade-in">
+                        <div class="card-image" style="overflow:hidden;">
+                            <img src="images/service-home-care.jpg" alt="Home Healthcare"
+                                style="width:100%;height:220px;object-fit:cover;">
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-circle"><i class="fas fa-house-medical"></i></div>
+                            <h3>Home Healthcare</h3>
+                            <p>Professional medical care delivered to your doorstep. Consultations, nursing care and
+                                health monitoring in the comfort of your home.</p>
+                        </div>
+                    </div>
+
+                    <div class="card service-card fade-in">
+                        <div class="card-image" style="overflow:hidden;">
+                            <img src="images/service-logistics.jpg" alt="Medical Logistics"
+                                style="width:100%;height:220px;object-fit:cover;">
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-circle"><i class="fas fa-truck-medical"></i></div>
+                            <h3>Medical Logistics</h3>
+                            <p>Reliable and timely delivery of medical supplies, equipment and pharmaceuticals to
+                                healthcare facilities and homes across the region.</p>
+                        </div>
+                    </div>
+
+                    <div class="card service-card fade-in">
+                        <div class="card-image" style="overflow:hidden;">
+                            <img src="images/service-education.jpg" alt="Health Education"
+                                style="width:100%;height:220px;object-fit:cover;">
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-circle"><i class="fas fa-chalkboard-user"></i></div>
+                            <h3>Health Education</h3>
+                            <p>Empowering communities through tailored health education workshops, disease prevention
+                                awareness and wellness coaching programmes.</p>
+                        </div>
+                    </div>
+
+                    <div class="card service-card fade-in">
+                        <div class="card-image" style="overflow:hidden;">
+                            <img src="images/service-screening.jpg" alt="Health Screenings"
+                                style="width:100%;height:220px;object-fit:cover;">
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-circle"><i class="fas fa-heartbeat"></i></div>
+                            <h3>Health Screenings</h3>
+                            <p>Comprehensive health screenings including blood pressure, blood sugar, BMI and
+                                cholesterol checks — brought right to your community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== WHY CHOOSE US ======================== -->
+        <section class="section why-choose-section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Why SAK Health</span>
+                    <h2>Why Choose Us</h2>
+                    <p>We go beyond the ordinary to deliver healthcare that is accessible, dependable and always
+                        centered around you.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="why-card fade-in">
+                        <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                        <h3>24/7 Availability</h3>
+                        <p>Healthcare doesn't keep office hours — and neither do we. Our team is available around the
+                            clock, every single day, ready when you need us most.</p>
+                    </div>
+
+                    <div class="why-card fade-in">
+                        <div class="icon-circle"><i class="fas fa-hand-holding-medical"></i></div>
+                        <h3>Care at Your Doorstep</h3>
+                        <p>No more long queues or exhausting commutes. We bring qualified medical professionals,
+                            supplies and screenings directly to your home or office.</p>
+                    </div>
+
+                    <div class="why-card fade-in">
+                        <div class="icon-circle"><i class="fas fa-building-shield"></i></div>
+                        <h3>Trusted by Organizations</h3>
+                        <p>Companies, schools and community groups across the Western Region trust SAK Health Consult
+                            for reliable corporate health programmes and medical logistics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== TESTIMONIALS ======================== -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Testimonials</span>
+                    <h2>What Our Clients Say</h2>
+                    <p>Real stories from the people we serve every day in Tarkwa and the Western Region.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card testimonial-card fade-in">
+                        <div class="testimonial-stars" style="margin-bottom:16px;color:var(--color-accent);">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="quote-text">"SAK Health Consult made it so easy for our family to access quality
+                            healthcare without travelling. The nurse came to our home, did a full check-up and was
+                            incredibly professional. Highly recommend!"</p>
+                        <div class="author">
+                            <img src="images/testimonial-1.jpg" alt="Ama Mensah"
+                                style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
+                            <div>
+                                <span class="author-name">Ama Mensah</span>
+                                <span class="author-role">Tarkwa Resident</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card testimonial-card fade-in">
+                        <div class="testimonial-stars" style="margin-bottom:16px;color:var(--color-accent);">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="quote-text">"As a mine supervisor, I needed a reliable partner for our on-site health
+                            screenings. SAK Health delivered — on time, every time. Our workers' health outcomes have
+                            never been better."</p>
+                        <div class="author">
+                            <img src="images/testimonial-2.jpg" alt="Kwame Asante"
+                                style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
+                            <div>
+                                <span class="author-name">Kwame Asante</span>
+                                <span class="author-role">Mining Safety Officer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card testimonial-card fade-in">
+                        <div class="testimonial-stars" style="margin-bottom:16px;color:var(--color-accent);">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="quote-text">"I ordered medical supplies for my clinic through SAK Health and was
+                            impressed by the speed and quality. Their logistics team is top-notch and the customer
+                            service is exceptional."</p>
+                        <div class="author">
+                            <img src="images/testimonial-3.jpg" alt="Efua Boateng"
+                                style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
+                            <div>
+                                <span class="author-name">Efua Boateng</span>
+                                <span class="author-role">Clinic Administrator, Prestea</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== CTA BANNER ======================== -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="cta-banner fade-in"
+                    style="background-image: url('images/cta-bg.jpg'); background-size: cover; background-position: center;">
+                    <h2>Ready to Experience Healthcare Beyond Walls?</h2>
+                    <p>Whether you need a home consultation, medical supplies or a corporate health programme — we're
+                        here 24/7, just a call or click away.</p>
+                    <a href="book.html" class="btn btn-accent btn-lg">Book an Appointment</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== MAP SECTION ======================== -->
+        <section class="section map-section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Find Us</span>
+                    <h2>Our Location</h2>
+                    <p>Based in Tarkwa, Western Region, Ghana — serving communities across the region and beyond.</p>
+                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31688.48481685469!2d-2.0088!3d5.3018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfddf5e8a6e8b4ef%3A0x3f8a3b5c38b7b901!2sTarkwa%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1700000000000!5m2!1sen!2sgh"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="SAK Health Consult location — Tarkwa, Ghana"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: About -->
+                <div class="footer-column footer-about">
+                    <h4>SAK Health Consult</h4>
+                    <p>Delivering quality home healthcare, medical supplies, health education and screenings to
+                        individuals and organisations across Tarkwa and the Western Region of Ghana.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/silas-anan-kakabaah-3baa22168" class="social-icon"
+                            target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Home Healthcare</a></li>
+                        <li><a href="services.html">Medical Logistics</a></li>
+                        <li><a href="services.html">Health Education</a></li>
+                        <li><a href="services.html">Health Screenings</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                        <li><a href="shop.html">Shop Supplies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i><span><a href="tel:+233544528317">+233 544 528 317</a><br><a
+                                    href="tel:+233598981022">+233 598 981 022</a></span></li>
+                        <li><i class="fas fa-envelope"></i><span><a
+                                    href="mailto:silas_anankakabaah@yahoo.com">silas_anankakabaah@yahoo.com</a></span>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>Tarkwa, Western Region, Ghana</span></li>
+                        <li><i class="fas fa-clock"></i><span>24/7 — Always Available</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAK Health Consult. All rights reserved. <a href="privacy.html">Privacy Policy</a>
+                    &middot; <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================== WHATSAPP FLOAT ======================== -->
+    <a href="https://wa.me/233544528317" class="whatsapp-float" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

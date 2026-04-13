@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment — SAK Health Consult</title>
+    <meta name="description"
+        content="Book a home healthcare visit, health screening, medical consultation or education session with SAK Health Consult in Tarkwa and the Western Region.">
+    <meta property="og:title" content="Book an Appointment — SAK Health Consult">
+    <meta property="og:description"
+        content="Schedule your healthcare appointment online. Home visits, screenings and consultations available 24/7.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sakhealthconsult.com/book">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ======================== HEADER ======================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="SAK Health Consult" class="logo-img">
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge hidden">0</span>
+                </a>
+                <a href="book.html" class="btn-nav-cta">Book Appointment</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="book.html" class="btn-nav-cta">Book Appointment</a>
+    </nav>
+
+    <main>
+
+        <!-- ======================== PAGE HERO ======================== -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Book an Appointment</h1>
+                <p>Schedule a home healthcare visit, screening or consultation in just a few steps. Our team is
+                    available 24/7 to serve you.</p>
+            </div>
+        </section>
+
+        <!-- ======================== BOOKING FORM ======================== -->
+        <section class="section fade-in">
+            <div class="container" style="max-width:760px;">
+
+                <!-- Progress Indicator -->
+                <div class="booking-progress">
+                    <div class="progress-step active">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Service</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Date &amp; Time</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Your Details</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">4</div>
+                        <span class="step-label">Confirm</span>
+                    </div>
+                </div>
+
+                <form id="booking-form" novalidate>
+
+                    <!-- Step 1: Service Selection -->
+                    <div class="booking-step active" data-step="1">
+                        <h3 style="margin-bottom:8px;">Select a Service</h3>
+                        <p style="margin-bottom:28px;">Choose the type of healthcare service you need.</p>
+
+                        <fieldset class="service-fieldset">
+                            <legend class="sr-only"
+                                style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">
+                                Select a service type</legend>
+
+                            <label class="service-option">
+                                <input type="radio" name="service" value="home-healthcare">
+                                <span class="option-radio"></span>
+                                <span class="option-icon"><i class="fas fa-house-medical"></i></span>
+                                <span class="option-text">
+                                    <h4>Home Healthcare</h4>
+                                    <p>Professional medical consultation and nursing care at your home.</p>
+                                </span>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service" value="health-screening">
+                                <span class="option-radio"></span>
+                                <span class="option-icon"><i class="fas fa-heartbeat"></i></span>
+                                <span class="option-text">
+                                    <h4>Health Screening</h4>
+                                    <p>Blood pressure, blood sugar, BMI and cholesterol checks.</p>
+                                </span>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service" value="health-education">
+                                <span class="option-radio"></span>
+                                <span class="option-icon"><i class="fas fa-chalkboard-user"></i></span>
+                                <span class="option-text">
+                                    <h4>Health Education</h4>
+                                    <p>Workshops, disease prevention talks and wellness coaching.</p>
+                                </span>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="radio" name="service" value="medical-logistics">
+                                <span class="option-radio"></span>
+                                <span class="option-icon"><i class="fas fa-truck-medical"></i></span>
+                                <span class="option-text">
+                                    <h4>Medical Logistics</h4>
+                                    <p>Medical supply delivery and equipment procurement services.</p>
+                                </span>
+                            </label>
+                        </fieldset>
+
+                        <div class="booking-nav">
+                            <div></div>
+                            <button type="button" class="btn btn-primary btn-next">Next <i
+                                    class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Date & Time -->
+                    <div class="booking-step" data-step="2">
+                        <h3 style="margin-bottom:8px;">Choose Date &amp; Time</h3>
+                        <p style="margin-bottom:28px;">Select your preferred appointment date and time slot.</p>
+
+                        <div class="form-group">
+                            <label for="booking-date" class="form-label">Preferred Date</label>
+                            <input type="date" id="booking-date" class="form-input" required>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-time" class="form-label">Preferred Time</label>
+                            <select id="booking-time" class="form-select" required>
+                                <option value="">Select a time slot</option>
+                                <option value="08:00 - 10:00">8:00 AM – 10:00 AM</option>
+                                <option value="10:00 - 12:00">10:00 AM – 12:00 PM</option>
+                                <option value="12:00 - 14:00">12:00 PM – 2:00 PM</option>
+                                <option value="14:00 - 16:00">2:00 PM – 4:00 PM</option>
+                                <option value="16:00 - 18:00">4:00 PM – 6:00 PM</option>
+                                <option value="18:00 - 20:00">6:00 PM – 8:00 PM (Evening)</option>
+                            </select>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="booking-nav">
+                            <button type="button" class="btn btn-secondary btn-prev"><i class="fas fa-arrow-left"></i>
+                                Back</button>
+                            <button type="button" class="btn btn-primary btn-next">Next <i
+                                    class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Personal Details -->
+                    <div class="booking-step" data-step="3">
+                        <h3 style="margin-bottom:8px;">Your Details</h3>
+                        <p style="margin-bottom:28px;">Please provide your contact information so we can confirm your
+                            appointment.</p>
+
+                        <div class="form-group">
+                            <label for="booking-name" class="form-label">Full Name</label>
+                            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Kwame Asante"
+                                required>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="booking-phone" class="form-input" placeholder="e.g. +233 544 528 317"
+                                required>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-email" class="form-label">Email Address</label>
+                            <input type="email" id="booking-email" class="form-input" placeholder="e.g. you@example.com"
+                                required>
+                            <span class="form-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-notes" class="form-label">Additional Notes (Optional)</label>
+                            <textarea id="booking-notes" class="form-textarea" rows="3"
+                                placeholder="Any specific requirements or information we should know..."></textarea>
+                        </div>
+
+                        <div class="booking-nav">
+                            <button type="button" class="btn btn-secondary btn-prev"><i class="fas fa-arrow-left"></i>
+                                Back</button>
+                            <button type="button" class="btn btn-primary btn-next">Review Booking <i
+                                    class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Review & Confirm -->
+                    <div class="booking-step" data-step="4">
+                        <h3 style="margin-bottom:8px;">Review &amp; Confirm</h3>
+                        <p style="margin-bottom:28px;">Please review your booking details before confirming.</p>
+
+                        <div class="booking-summary"
+                            style="background:var(--color-bg-alt);border-radius:var(--border-radius-md);padding:32px;margin-bottom:24px;">
+                            <!-- Filled dynamically by JS -->
+                        </div>
+
+                        <div class="booking-nav">
+                            <button type="button" class="btn btn-secondary btn-prev"><i class="fas fa-arrow-left"></i>
+                                Back</button>
+                            <button type="button" class="btn btn-accent btn-confirm"><i class="fas fa-check-circle"></i>
+                                Confirm Appointment</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <!-- ======================== HELP SECTION ======================== -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Need Help?</span>
+                    <h2>Get in Touch Directly</h2>
+                    <p>Prefer to speak with someone? Our team is available around the clock to assist you.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card fade-in" style="text-align:center;padding:36px;">
+                        <div class="icon-circle"
+                            style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Call Us</h4>
+                        <p style="margin-top:8px;"><a href="tel:+233544528317">+233 544 528 317</a></p>
+                        <p><a href="tel:+233598981022">+233 598 981 022</a></p>
+                    </div>
+
+                    <div class="card fade-in" style="text-align:center;padding:36px;">
+                        <div class="icon-circle"
+                            style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p style="margin-top:8px;"><a
+                                href="mailto:silas_anankakabaah@yahoo.com">silas_anankakabaah@yahoo.com</a></p>
+                    </div>
+
+                    <div class="card fade-in" style="text-align:center;padding:36px;">
+                        <div class="icon-circle"
+                            style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4>WhatsApp</h4>
+                        <p style="margin-top:8px;"><a href="https://wa.me/233544528317" target="_blank"
+                                rel="noopener">Chat with us on WhatsApp</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-about">
+                    <h4>SAK Health Consult</h4>
+                    <p>Delivering quality home healthcare, medical supplies, health education and screenings to
+                        individuals and organisations across Tarkwa and the Western Region of Ghana.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/silas-anan-kakabaah-3baa22168" class="social-icon"
+                            target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Home Healthcare</a></li>
+                        <li><a href="services.html">Medical Logistics</a></li>
+                        <li><a href="services.html">Health Education</a></li>
+                        <li><a href="services.html">Health Screenings</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                        <li><a href="shop.html">Shop Supplies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i><span><a href="tel:+233544528317">+233 544 528 317</a><br><a
+                                    href="tel:+233598981022">+233 598 981 022</a></span></li>
+                        <li><i class="fas fa-envelope"></i><span><a
+                                    href="mailto:silas_anankakabaah@yahoo.com">silas_anankakabaah@yahoo.com</a></span>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>Tarkwa, Western Region, Ghana</span></li>
+                        <li><i class="fas fa-clock"></i><span>24/7 — Always Available</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAK Health Consult. All rights reserved. <a href="privacy.html">Privacy Policy</a>
+                    &middot; <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================== WHATSAPP FLOAT ======================== -->
+    <a href="https://wa.me/233544528317" class="whatsapp-float" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

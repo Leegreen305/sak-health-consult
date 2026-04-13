@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — SAK Health Consult</title>
+    <meta name="description"
+        content="Get in touch with SAK Health Consult. Available 24/7 for home healthcare, medical supplies, health education and screenings in Tarkwa and the Western Region of Ghana.">
+    <meta property="og:title" content="Contact Us — SAK Health Consult">
+    <meta property="og:description"
+        content="Reach SAK Health Consult 24/7. Call, WhatsApp or send us a message for healthcare services in Tarkwa, Ghana.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sakhealthconsult.com/contact.html">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ======================== HEADER ======================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="SAK Health Consult" class="logo-img">
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge hidden">0</span>
+                </a>
+                <a href="book.html" class="btn-nav-cta">Book Appointment</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="book.html" class="btn-nav-cta">Book Appointment</a>
+    </nav>
+
+    <main>
+
+        <!-- ======================== PAGE HERO ======================== -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p>We're here to help — 24 hours a day, 7 days a week</p>
+            </div>
+        </section>
+
+        <!-- ======================== CONTACT SECTION ======================== -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="grid-2" style="gap:48px; align-items:start;">
+
+                    <!-- Left: Contact Form -->
+                    <div>
+                        <h2 style="margin-bottom:8px;">Send Us a Message</h2>
+                        <p style="margin-bottom:32px;">Fill out the form below and we'll get back to you within 24
+                            hours.</p>
+
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" class="form-input"
+                                    placeholder="Enter your full name" required>
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" class="form-input" placeholder="your@email.com"
+                                    required>
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone" class="form-input" placeholder="+233 XXX XXX XXX">
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contact-subject">Subject</label>
+                                <select id="contact-subject" class="form-select">
+                                    <option value="">Select a subject</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Home Healthcare">Home Healthcare</option>
+                                    <option value="Medical Supplies">Medical Supplies</option>
+                                    <option value="Health Education">Health Education</option>
+                                    <option value="Health Screenings">Health Screenings</option>
+                                    <option value="Bulk Orders">Bulk Orders</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <span class="form-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="contact-message">Message</label>
+                                <textarea id="contact-message" class="form-textarea" placeholder="How can we help you?"
+                                    rows="5" required></textarea>
+                                <span class="form-error"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+                                <i class="fas fa-paper-plane" style="margin-right:8px;"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Contact Info Card -->
+                    <div>
+                        <div class="card" style="padding:40px 36px;">
+                            <h3 style="margin-bottom:28px;">Contact Information</h3>
+
+                            <div style="display:flex; flex-direction:column; gap:24px;">
+                                <div style="display:flex; gap:16px; align-items:flex-start;">
+                                    <div class="icon-circle"
+                                        style="width:48px; height:48px; min-width:48px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem;">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin-bottom:4px;">Phone</h4>
+                                        <p style="font-size:0.95rem;"><a href="tel:+233544528317">+233 544 528 317</a>
+                                        </p>
+                                        <p style="font-size:0.95rem;"><a href="tel:+233598981022">+233 598 981 022</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="display:flex; gap:16px; align-items:flex-start;">
+                                    <div class="icon-circle"
+                                        style="width:48px; height:48px; min-width:48px; border-radius:50%; background:linear-gradient(135deg, #25D366, #128C7E); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem;">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin-bottom:4px;">WhatsApp</h4>
+                                        <p style="font-size:0.95rem;"><a href="https://wa.me/233544528317"
+                                                target="_blank" rel="noopener">Chat with us on WhatsApp</a></p>
+                                    </div>
+                                </div>
+
+                                <div style="display:flex; gap:16px; align-items:flex-start;">
+                                    <div class="icon-circle"
+                                        style="width:48px; height:48px; min-width:48px; border-radius:50%; background:linear-gradient(135deg, var(--color-accent), var(--color-accent-light)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem;">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin-bottom:4px;">Email</h4>
+                                        <p style="font-size:0.95rem;"><a
+                                                href="mailto:silas_anankakabaah@yahoo.com">silas_anankakabaah@yahoo.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="display:flex; gap:16px; align-items:flex-start;">
+                                    <div class="icon-circle"
+                                        style="width:48px; height:48px; min-width:48px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin-bottom:4px;">Address</h4>
+                                        <p style="font-size:0.95rem;">Tarkwa, Western Region, Ghana</p>
+                                    </div>
+                                </div>
+
+                                <div style="display:flex; gap:16px; align-items:flex-start;">
+                                    <div class="icon-circle"
+                                        style="width:48px; height:48px; min-width:48px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1rem;">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin-bottom:4px;">Hours</h4>
+                                        <p style="font-size:0.95rem;">24/7 — Always Available</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="border-top:1px solid var(--color-border); margin-top:28px; padding-top:28px;">
+                                <h4 style="margin-bottom:16px;">Follow Us</h4>
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon" aria-label="Facebook"
+                                        style="background:rgba(11,110,114,0.08); border-color:rgba(11,110,114,0.1); color:var(--color-primary);"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-icon" aria-label="Instagram"
+                                        style="background:rgba(11,110,114,0.08); border-color:rgba(11,110,114,0.1); color:var(--color-primary);"><i
+                                            class="fab fa-instagram"></i></a>
+                                    <a href="https://www.linkedin.com/in/silas-anan-kakabaah-3baa22168"
+                                        class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn"
+                                        style="background:rgba(11,110,114,0.08); border-color:rgba(11,110,114,0.1); color:var(--color-primary);"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== MAP SECTION ======================== -->
+        <section class="section map-section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Find Us</span>
+                    <h2>Our Location</h2>
+                    <p>Based in Tarkwa, Western Region, Ghana — serving communities across the region and beyond.</p>
+                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31688.48481685469!2d-2.0088!3d5.3018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfddf5e8a6e8b4ef%3A0x3f8a3b5c38b7b901!2sTarkwa%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1700000000000!5m2!1sen!2sgh"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="SAK Health Consult location — Tarkwa, Ghana"></iframe>
+            </div>
+        </section>
+
+        <!-- ======================== CTA BANNER ======================== -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="cta-banner fade-in">
+                    <h2>Ready to Book?</h2>
+                    <p>Schedule a home healthcare visit, medical supply delivery or health screening — all in just a few
+                        clicks.</p>
+                    <a href="book.html" class="btn btn-accent btn-lg">Book an Appointment</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-about">
+                    <h4>SAK Health Consult</h4>
+                    <p>Delivering quality home healthcare, medical supplies, health education and screenings to
+                        individuals and organisations across Tarkwa and the Western Region of Ghana.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/silas-anan-kakabaah-3baa22168" class="social-icon"
+                            target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Home Healthcare</a></li>
+                        <li><a href="services.html">Medical Logistics</a></li>
+                        <li><a href="services.html">Health Education</a></li>
+                        <li><a href="services.html">Health Screenings</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                        <li><a href="shop.html">Shop Supplies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i><span><a href="tel:+233544528317">+233 544 528 317</a><br><a
+                                    href="tel:+233598981022">+233 598 981 022</a></span></li>
+                        <li><i class="fas fa-envelope"></i><span><a
+                                    href="mailto:silas_anankakabaah@yahoo.com">silas_anankakabaah@yahoo.com</a></span>
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>Tarkwa, Western Region, Ghana</span></li>
+                        <li><i class="fas fa-clock"></i><span>24/7 — Always Available</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAK Health Consult. All rights reserved. <a href="privacy.html">Privacy Policy</a>
+                    &middot; <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================== WHATSAPP FLOAT ======================== -->
+    <a href="https://wa.me/233544528317" class="whatsapp-float" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
