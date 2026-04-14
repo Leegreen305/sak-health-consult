@@ -86,7 +86,7 @@
                         }
                     });
                 },
-                { threshold: 0.15 }
+                { threshold: 0.01, rootMargin: '0px 0px -40px 0px' }
             );
 
             elements.forEach(function (el) {
