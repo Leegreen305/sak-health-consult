@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAFAFA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F4F4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="500" fill="url(#screenGrad)"/>
+  <!-- Blood pressure monitor -->
+  <g transform="translate(120, 150)">
+    <rect x="0" y="0" width="100" height="120" rx="8" fill="#FFFFFF" stroke="#0A5C61" stroke-width="2"/>
+    <rect x="10" y="10" width="80" height="60" fill="#87CEEB" opacity="0.7"/>
+    <text x="50" y="45" font-family="Arial" font-size="20" fill="#0A5C61" text-anchor="middle" font-weight="700">120</text>
+    <text x="50" y="65" font-family="Arial" font-size="12" fill="#4A6366" text-anchor="middle">mmHg</text>
+    <rect x="10" y="80" width="80" height="30" rx="4" fill="#12898F" opacity="0.8"/>
+    <circle cx="30" cy="95" r="4" fill="#FFFFFF"/>
+    <circle cx="50" cy="95" r="4" fill="#FFFFFF"/>
+    <circle cx="70" cy="95" r="4" fill="#FFFFFF"/>
+  </g>
+  <!-- Glucose monitor -->
+  <g transform="translate(360, 120)">
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#0A5C61" stroke-width="3"/>
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#12898F" stroke-width="2"/>
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#B8943F" stroke-width="2"/>
+    <text x="0" y="8" font-family="Arial" font-size="24" fill="#0A5C61" text-anchor="middle" font-weight="700">98</text>
+    <text x="0" y="25" font-family="Arial" font-size="12" fill="#4A6366" text-anchor="middle">mg/dL</text>
+    <line x1="0" y1="-30" x2="0" y2="-55" stroke="#B8943F" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- Scale/Weight -->
+  <g transform="translate(250, 340)">
+    <rect x="-50" y="0" width="100" height="80" rx="4" fill="#FFFFFF" stroke="#0A5C61" stroke-width="2"/>
+    <rect x="-45" y="5" width="90" height="40" fill="#E2EAEB"/>
+    <text x="0" y="38" font-family="Arial" font-size="18" fill="#0A5C61" text-anchor="middle" font-weight="700">72 kg</text>
+    <!-- Platform -->
+    <rect x="-50" y="48" width="100" height="8" rx="2" fill="#0A5C61" opacity="0.85"/>
+    <circle cx="-35" cy="60" r="6" fill="#2C3E50"/>
+    <circle cx="35" cy="60" r="6" fill="#2C3E50"/>
+  </g>
+  <!-- Stethoscope icon -->
+  <path d="M 500 180 Q 510 170 515 185" stroke="#C0392B" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="515" cy="190" r="6" fill="#C0392B"/>
+</svg>

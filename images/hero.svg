@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12898F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#heroGrad)"/>
+  <circle cx="100" cy="80" r="120" fill="#B8943F" opacity="0.15"/>
+  <circle cx="750" cy="550" r="140" fill="#B8943F" opacity="0.12"/>
+  <!-- Medical professional -->
+  <g transform="translate(200, 200)">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="30" fill="#F5D5B8"/>
+    <!-- Body/Torso -->
+    <ellipse cx="0" cy="50" rx="25" ry="40" fill="#FFFFFF" stroke="#E2EAEB" stroke-width="2"/>
+    <!-- Arms -->
+    <line x1="-25" y1="35" x2="-50" y2="60" stroke="#F5D5B8" stroke-width="8" stroke-linecap="round"/>
+    <line x1="25" y1="35" x2="50" y2="70" stroke="#F5D5B8" stroke-width="8" stroke-linecap="round"/>
+    <!-- Hands -->
+    <circle cx="-50" cy="60" r="8" fill="#F5D5B8"/>
+    <circle cx="50" cy="70" r="8" fill="#F5D5B8"/>
+    <!-- Legs -->
+    <line x1="-15" y1="85" x2="-15" y2="120" stroke="#4A4A4A" stroke-width="6" stroke-linecap="round"/>
+    <line x1="15" y1="85" x2="15" y2="120" stroke="#4A4A4A" stroke-width="6" stroke-linecap="round"/>
+    <!-- Stethoscope -->
+    <path d="M -5 30 Q 5 25 10 35" stroke="#B8943F" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="10" cy="35" r="5" fill="#B8943F"/>
+  </g>
+  <!-- Patient in bed -->
+  <g transform="translate(500, 250)">
+    <!-- Bed frame -->
+    <rect x="-80" y="0" width="160" height="100" rx="8" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+    <!-- Mattress -->
+    <rect x="-75" y="5" width="150" height="50" rx="4" fill="#D4D4D4" opacity="0.9"/>
+    <!-- Pillow -->
+    <ellipse cx="-50" cy="15" rx="25" ry="15" fill="#F0F0F0"/>
+    <!-- Head -->
+    <circle cx="-50" cy="10" r="18" fill="#F5D5B8"/>
+    <!-- Body outline -->
+    <path d="M -50 28 L -50 55 L 50 55 L 50 35 L -20 30 Z" fill="#E8F4F8" opacity="0.8"/>
+    <!-- IV stand -->
+    <line x1="60" y1="-30" x2="60" y2="55" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="60" cy="-30" r="6" fill="#B8943F"/>
+  </g>
+  <!-- Care indicator -->
+  <circle cx="400" cy="520" r="50" fill="rgba(255,255,255,0.15)" stroke="#D4AF6A" stroke-width="2"/>
+  <text x="400" y="530" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#D4AF6A" text-anchor="middle">24/7 Care</text>
+</svg>

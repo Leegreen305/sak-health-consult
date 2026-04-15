@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | SAK Health Consult</title>
+    <meta name="description"
+        content="Schedule a healthcare visit with SAK Health Consult using our guided appointment booking experience.">
+    <link rel="canonical" href="https://sakhealthconsult.com/book.html">
+    <meta property="og:title" content="Book Appointment | SAK Health Consult">
+    <meta property="og:description"
+        content="Schedule a healthcare visit with SAK Health Consult using our guided appointment booking experience.">
+    <meta property="og:image" content="images/og-image.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="frosted-header">
+        <div class="container navbar">
+            <a href="index.html" class="site-brand"><span>SAK</span> Health</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="shop.html">Shop</a>
+                <a href="book.html" class="active">Book Appointment</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="book.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+            <button class="mobile-menu-trigger" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <div class="overlay-menu" aria-hidden="true">
+        <button class="overlay-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="shop.html">Shop</a>
+        <a href="book.html">Book Appointment</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <main>
+        <section class="page-hero reveal">
+            <div class="container">
+                <h1>Book Appointment</h1>
+                <p>Schedule your visit in four simple steps and receive personal healthcare support when you need it
+                    most.</p>
+            </div>
+        </section>
+
+        <section class="container reveal">
+            <div class="form-card">
+                <div class="progress-bar">
+                    <div class="progress-step active"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                    <div class="progress-step"></div>
+                </div>
+                <div class="progress-labels">
+                    <div class="progress-label">Select Service</div>
+                    <div class="progress-label">Choose Date</div>
+                    <div class="progress-label">Your Details</div>
+                    <div class="progress-label">Confirmation</div>
+                </div>
+
+                <form>
+                    <div class="form-step active">
+                        <h3 style="margin:0 0 32px; font-size:20px; color:#0D1B1E;">Which service interests you?</h3>
+                        <div class="service-option selected">
+                            <input type="radio" name="service" value="home" checked hidden>
+                            <div style="display:flex; gap:16px; align-items:flex-start;">
+                                <div style="width:48px; height:48px; border-radius:10px; background:#0A5C61; display:grid; place-items:center; color:#fff; font-size:24px; flex-shrink:0;"><i class="fas fa-home"></i></div>
+                                <div>
+                                    <h3 style="margin:0 0 8px; font-size:18px;">Home Healthcare</h3>
+                                    <p style="margin:0; color:#4A6366; font-size:14px;">Skilled nursing, consultations and monitoring at your home</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" name="service" value="logistics" hidden>
+                            <div style="display:flex; gap:16px; align-items:flex-start;">
+                                <div style="width:48px; height:48px; border-radius:10px; background:#0A5C61; display:grid; place-items:center; color:#fff; font-size:24px; flex-shrink:0;"><i class="fas fa-shipping-fast"></i></div>
+                                <div>
+                                    <h3 style="margin:0 0 8px; font-size:18px;">Medical Logistics</h3>
+                                    <p style="margin:0; color:#4A6366; font-size:14px;">Fast delivery of supplies, equipment and pharmaceuticals</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" name="service" value="education" hidden>
+                            <div style="display:flex; gap:16px; align-items:flex-start;">
+                                <div style="width:48px; height:48px; border-radius:10px; background:#0A5C61; display:grid; place-items:center; color:#fff; font-size:24px; flex-shrink:0;"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <div>
+                                    <h3 style="margin:0 0 8px; font-size:18px;">Health Education</h3>
+                                    <p style="margin:0; color:#4A6366; font-size:14px;">Workshops and disease prevention training for your community</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" name="service" value="screenings" hidden>
+                            <div style="display:flex; gap:16px; align-items:flex-start;">
+                                <div style="width:48px; height:48px; border-radius:10px; background:#0A5C61; display:grid; place-items:center; color:#fff; font-size:24px; flex-shrink:0;"><i class="fas fa-notes-medical"></i></div>
+                                <div>
+                                    <h3 style="margin:0 0 8px; font-size:18px;">Health Screenings</h3>
+                                    <p style="margin:0; color:#4A6366; font-size:14px;">Blood pressure, glucose, BMI and cholesterol checks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary step-next" type="button" style="width:100%; margin-top:32px;">Continue to Date Selection</button>
+                    </div>
+
+                    <div class="form-step">
+                        <h3 style="margin:0 0 24px; font-size:20px; color:#0D1B1E;">Select your preferred date and time</h3>
+                        <div style="margin-bottom:32px;">
+                            <label style="display:block; font-size:14px; font-weight:600; color:#0D1B1E; margin-bottom:16px;">Available Dates</label>
+                            <div class="calendar-grid">
+                                <div class="date-picker selected">
+                                    <div style="font-weight:600; margin-bottom:4px;">Mon, May 5</div>
+                                    <div style="font-size:12px; color:#8A9EA0;">Morning</div>
+                                </div>
+                                <div class="date-picker">
+                                    <div style="font-weight:600; margin-bottom:4px;">Wed, May 7</div>
+                                    <div style="font-size:12px; color:#8A9EA0;">Afternoon</div>
+                                </div>
+                                <div class="date-picker">
+                                    <div style="font-weight:600; margin-bottom:4px;">Fri, May 9</div>
+                                    <div style="font-size:12px; color:#8A9EA0;">Morning</div>
+                                </div>
+                                <div class="date-picker">
+                                    <div style="font-weight:600; margin-bottom:4px;">Mon, May 12</div>
+                                    <div style="font-size:12px; color:#8A9EA0;">Afternoon</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:32px;">
+                            <label style="display:block; font-size:14px; font-weight:600; color:#0D1B1E; margin-bottom:16px;">Preferred Time</label>
+                            <div class="time-grid">
+                                <div class="time-slot selected">
+                                    <i class="fas fa-sun" style="margin-right:8px;"></i> 09:00 AM
+                                </div>
+                                <div class="time-slot">
+                                    <i class="fas fa-sun" style="margin-right:8px;"></i> 11:00 AM
+                                </div>
+                                <div class="time-slot">
+                                    <i class="fas fa-cloud-sun" style="margin-right:8px;"></i> 02:00 PM
+                                </div>
+                                <div class="time-slot">
+                                    <i class="fas fa-moon" style="margin-right:8px;"></i> 04:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:32px;">
+                            <button class="btn btn-secondary step-back" type="button">Back</button>
+                            <button class="btn btn-primary step-next" type="button">Continue to Details</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <h3 style="margin:0 0 24px; font-size:20px; color:#0D1B1E;">Tell us about yourself</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <input class="form-input" type="text" id="name" placeholder=" " required>
+                                <label class="form-label" for="name">Full Name</label>
+                            </div>
+                            <div class="form-field">
+                                <input class="form-input" type="tel" id="phone" placeholder=" " required>
+                                <label class="form-label" for="phone">Phone Number (+233...)</label>
+                            </div>
+                            <div class="form-field">
+                                <input class="form-input" type="email" id="email" placeholder=" " required>
+                                <label class="form-label" for="email">Email Address</label>
+                            </div>
+                            <div class="form-field">
+                                <select class="form-input" id="reason" style="background:#fff; cursor:pointer;" required>
+                                    <option value="">-- Select reason for visit --</option>
+                                    <option value="consultation">Medical Consultation</option>
+                                    <option value="nursing">Nursing Support</option>
+                                    <option value="monitoring">Health Monitoring</option>
+                                    <option value="followup">Follow-up Care</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <textarea class="form-textarea" id="notes" placeholder=" " style="min-height:100px;"></textarea>
+                                <label class="form-label" for="notes">Additional Notes (medical conditions, preferences)</label>
+                            </div>
+                        </div>
+                        <div
+                            style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:32px;">
+                            <button class="btn btn-secondary step-back" type="button">Back</button>
+                            <button class="btn btn-primary step-next" type="button">Review & Confirm</button>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <h3 style="text-align:center; margin-bottom:32px;">Review Your Appointment</h3>
+                        <div style="background:#f5f9f9; border-left:4px solid #0A5C61; padding:24px; border-radius:8px; margin-bottom:32px;">
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+                                <div>
+                                    <p style="margin:0 0 8px; color:#666; font-size:14px; font-weight:600; text-transform:uppercase;">Service</p>
+                                    <p id="confirm-service" style="margin:0; font-size:18px; color:#0A5C61; font-weight:600;">-</p>
+                                </div>
+                                <div>
+                                    <p style="margin:0 0 8px; color:#666; font-size:14px; font-weight:600; text-transform:uppercase;">Reason for Visit</p>
+                                    <p id="confirm-reason" style="margin:0; font-size:18px; color:#0A5C61; font-weight:600;">-</p>
+                                </div>
+                            </div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px;">
+                                <div>
+                                    <p style="margin:0 0 8px; color:#666; font-size:14px; font-weight:600; text-transform:uppercase;">Date</p>
+                                    <p id="confirm-date" style="margin:0; font-size:18px; color:#0A5C61; font-weight:600;">-</p>
+                                </div>
+                                <div>
+                                    <p style="margin:0 0 8px; color:#666; font-size:14px; font-weight:600; text-transform:uppercase;">Time</p>
+                                    <p id="confirm-time" style="margin:0; font-size:18px; color:#0A5C61; font-weight:600;">-</p>
+                                </div>
+                            </div>
+                            <div style="border-top:1px solid #d0e0e0; padding-top:24px;">
+                                <p style="margin:0 0 8px; color:#666; font-size:14px; font-weight:600; text-transform:uppercase;">Your Contact Information</p>
+                                <div id="confirm-contact" style="font-size:16px; color:#333; line-height:1.8;">
+                                    <p style="margin:0;">-</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; gap:16px; justify-content:center; margin-top:32px; flex-wrap:wrap;">
+                            <button class="btn btn-secondary step-back" type="button">Back</button>
+                            <button class="btn btn-primary" id="confirm-booking" type="button">Confirm Booking</button>
+                        </div>
+
+                        <div class="confirmation-panel" id="success-panel" style="display:none;">
+                            <div class="confirmation-icon" style="background:#D4AF6A; color:#fff;">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h2>Appointment Confirmed!</h2>
+                            <p>Thank you for booking with SAK Health Consult. Your appointment has been successfully scheduled. We will contact you within 24 hours to confirm the visit details and answer any questions.</p>
+                            <div style="background:#f0f8f7; padding:20px; border-radius:8px; margin:24px 0; text-align:left;">
+                                <p style="margin:0 0 12px; color:#666; font-size:14px;"><strong>What happens next?</strong></p>
+                                <ul style="margin:0; padding-left:20px; color:#333; font-size:14px; line-height:1.8;">
+                                    <li>Our team will call you to confirm appointment time</li>
+                                    <li>You'll receive an SMS reminder 24 hours before</li>
+                                    <li>Our healthcare professional will arrive on time</li>
+                                </ul>
+                            </div>
+                            <a href="index.html" class="btn btn-primary">Back to Home</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo"><span>SAK</span> Health</a>
+                <p class="footer-tagline">Healthcare Beyond Walls</p>
+                <p>Delivering premium community healthcare and logistics services across Tarkwa, Western Region.</p>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html">Doctor Door (Dr. D'Or)</a></li>
+                    <li><a href="services.html">Medical Logistics</a></li>
+                    <li><a href="services.html">Health Education</a></li>
+                    <li><a href="services.html">Health Screenings</a></li>
+                    <li><a href="services.html">Telemedicine</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="book.html">Book Appointment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li>+233 544 528 317</li>
+                    <li>+233 598 981 022</li>
+                    <li>info@sakhealthconsult.com</li>
+                    <li>24/7 Always Available</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>© 2026 SAK Health Consult. All rights reserved.</span>
+            <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></span>
+        </div>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/233544528317" target="_blank" rel="noreferrer"
+        aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+    </a>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="scaleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12898F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  <circle cx="100" cy="100" r="80" fill="url(#scaleGradient)" opacity="0.1"/>
+  <rect x="60" y="110" width="80" height="20" rx="5" fill="url(#scaleGradient)"/>
+  <rect x="70" y="100" width="60" height="15" rx="3" fill="#fff"/>
+  <rect x="75" y="105" width="50" height="5" rx="2" fill="url(#scaleGradient)"/>
+  <circle cx="85" cy="107" r="1.5" fill="#B8943F"/>
+  <circle cx="95" cy="107" r="1.5" fill="#B8943F"/>
+  <circle cx="105" cy="107" r="1.5" fill="#B8943F"/>
+  <circle cx="115" cy="107" r="1.5" fill="#B8943F"/>
+  <text x="100" y="150" text-anchor="middle" fill="#0A5C61" font-family="Arial, sans-serif" font-size="12" font-weight="bold">DIGITAL</text>
+  <text x="100" y="165" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="10">SCALE</text>
+</svg></content>
+<parameter name="filePath">c:\Users\HP\Desktop\AI agents\AI-Red-Team-Framework\sak-health-consult\images\product-scale.svg

@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="firstAidGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12898F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  <circle cx="100" cy="100" r="80" fill="url(#firstAidGradient)" opacity="0.1"/>
+  <rect x="60" y="70" width="80" height="60" rx="8" fill="url(#firstAidGradient)"/>
+  <rect x="65" y="75" width="70" height="50" rx="5" fill="#fff"/>
+  <rect x="75" y="85" width="15" height="15" rx="2" fill="#B8943F"/>
+  <rect x="95" y="85" width="15" height="15" rx="2" fill="#D4AF6A"/>
+  <rect x="75" y="105" width="35" height="8" rx="2" fill="#0A5C61"/>
+  <path d="M85 95 L105 95 M95 85 L95 115" stroke="#B8943F" stroke-width="2"/>
+  <text x="100" y="155" text-anchor="middle" fill="#0A5C61" font-family="Arial, sans-serif" font-size="12" font-weight="bold">FIRST AID</text>
+  <text x="100" y="170" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="10">KIT</text>
+</svg></content>
+<parameter name="filePath">c:\Users\HP\Desktop\AI agents\AI-Red-Team-Framework\sak-health-consult\images\product-first-aid.svg

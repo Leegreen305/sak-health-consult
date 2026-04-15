@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="walkerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12898F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  <circle cx="100" cy="100" r="80" fill="url(#walkerGradient)" opacity="0.1"/>
+  <rect x="85" y="60" width="30" height="80" rx="3" fill="url(#walkerGradient)"/>
+  <circle cx="85" cy="145" r="8" fill="#B8943F"/>
+  <circle cx="115" cy="145" r="8" fill="#B8943F"/>
+  <circle cx="85" cy="145" r="4" fill="#D4AF6A"/>
+  <circle cx="115" cy="145" r="4" fill="#D4AF6A"/>
+  <rect x="75" y="70" width="50" height="15" rx="2" fill="#fff"/>
+  <rect x="80" y="75" width="40" height="5" rx="2" fill="url(#walkerGradient)"/>
+  <text x="100" y="170" text-anchor="middle" fill="#0A5C61" font-family="Arial, sans-serif" font-size="12" font-weight="bold">WALKING</text>
+  <text x="100" y="185" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="10">FRAME</text>
+</svg></content>
+<parameter name="filePath">c:\Users\HP\Desktop\AI agents\AI-Red-Team-Framework\sak-health-consult\images\product-walker.svg

@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nebulizerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12898F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  <circle cx="100" cy="100" r="80" fill="url(#nebulizerGradient)" opacity="0.1"/>
+  <rect x="75" y="85" width="50" height="30" rx="8" fill="url(#nebulizerGradient)"/>
+  <rect x="80" y="90" width="40" height="20" rx="5" fill="#fff"/>
+  <circle cx="90" cy="100" r="4" fill="#B8943F"/>
+  <circle cx="110" cy="100" r="4" fill="#B8943F"/>
+  <path d="M75 95 L65 95 L65 105 L75 105" stroke="url(#nebulizerGradient)" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="100" r="2" fill="#D4AF6A"/>
+  <text x="100" y="150" text-anchor="middle" fill="#0A5C61" font-family="Arial, sans-serif" font-size="12" font-weight="bold">NEBULIZER</text>
+  <text x="100" y="165" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="10">MACHINE</text>
+</svg></content>
+<parameter name="filePath">c:\Users\HP\Desktop\AI agents\AI-Red-Team-Framework\sak-health-consult\images\product-nebulizer.svg
