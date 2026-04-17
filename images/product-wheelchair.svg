@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wheelchairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12898F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  <circle cx="100" cy="100" r="80" fill="url(#wheelchairGradient)" opacity="0.1"/>
+  <circle cx="80" cy="140" r="15" fill="url(#wheelchairGradient)"/>
+  <circle cx="120" cy="140" r="15" fill="url(#wheelchairGradient)"/>
+  <circle cx="80" cy="140" r="8" fill="#B8943F"/>
+  <circle cx="120" cy="140" r="8" fill="#B8943F"/>
+  <rect x="75" y="100" width="50" height="40" rx="5" fill="url(#wheelchairGradient)"/>
+  <rect x="85" y="90" width="30" height="20" rx="10" fill="#fff"/>
+  <rect x="90" y="95" width="20" height="10" rx="5" fill="url(#wheelchairGradient)"/>
+  <text x="100" y="170" text-anchor="middle" fill="#0A5C61" font-family="Arial, sans-serif" font-size="12" font-weight="bold">WHEELCHAIR</text>
+  <text x="100" y="185" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="10">ACCESSIBLE</text>
+</svg></content>
+<parameter name="filePath">c:\Users\HP\Desktop\AI agents\AI-Red-Team-Framework\sak-health-consult\images\product-wheelchair.svg

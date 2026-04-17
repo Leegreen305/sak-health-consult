@@ -1,0 +1,18 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bpGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12898F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  <circle cx="100" cy="100" r="80" fill="url(#bpGradient)" opacity="0.1"/>
+  <rect x="60" y="70" width="80" height="60" rx="10" fill="url(#bpGradient)"/>
+  <rect x="75" y="85" width="50" height="30" rx="5" fill="#fff"/>
+  <circle cx="85" cy="100" r="8" fill="#B8943F"/>
+  <circle cx="115" cy="100" r="8" fill="#B8943F"/>
+  <path d="M60 90 L40 90 L40 110 L60 110" stroke="url(#bpGradient)" stroke-width="6" fill="none"/>
+  <text x="100" y="150" text-anchor="middle" fill="#0A5C61" font-family="Arial, sans-serif" font-size="12" font-weight="bold">BLOOD PRESSURE</text>
+  <text x="100" y="165" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="10">MONITOR</text>
+</svg></content>
+<parameter name="filePath">c:\Users\HP\Desktop\AI agents\AI-Red-Team-Framework\sak-health-consult\images\product-blood-pressure.svg
