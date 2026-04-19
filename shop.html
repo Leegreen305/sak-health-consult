@@ -964,6 +964,32 @@
         </div>
     </div>
 
+    <!-- ======================== PRODUCT DETAIL MODAL ======================== -->
+    <div class="product-modal-overlay" id="productModal" aria-hidden="true">
+        <div class="product-modal glass-card">
+            <button class="product-modal-close" aria-label="Close">&times;</button>
+            <div class="product-modal-content">
+                <div class="product-modal-image">
+                    <img id="modalProductImg" src="" alt="" width="500" height="500">
+                </div>
+                <div class="product-modal-info">
+                    <span class="product-modal-category" id="modalProductCategory"></span>
+                    <h2 id="modalProductName"></h2>
+                    <p id="modalProductDesc"></p>
+                    <div class="product-modal-price">Contact for Price</div>
+                    <div class="product-modal-actions">
+                        <a id="modalWhatsApp" href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+                            <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                        </a>
+                        <button id="modalAddToCart" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Premium Animation Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>

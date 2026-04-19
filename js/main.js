@@ -713,6 +713,96 @@
     }
 
     /* ----------------------------------------------------------
+       PRODUCT DETAIL MODAL
+       ---------------------------------------------------------- */
+    function initProductModal() {
+        var modal = document.getElementById('productModal');
+        if (!modal) return;
+
+        var modalImg = document.getElementById('modalProductImg');
+        var modalName = document.getElementById('modalProductName');
+        var modalDesc = document.getElementById('modalProductDesc');
+        var modalCategory = document.getElementById('modalProductCategory');
+        var modalWhatsApp = document.getElementById('modalWhatsApp');
+        var modalAddToCart = document.getElementById('modalAddToCart');
+        var closeBtn = modal.querySelector('.product-modal-close');
+
+        // Category label map for display
+        var categoryLabels = {
+            'bandages': 'Bandages',
+            'wound-care': 'Wound Care',
+            'gauze-cotton': 'Gauze & Cotton',
+            'surgical-tapes': 'Surgical Tapes',
+            'ppe': 'PPE',
+            'syringes-iv': 'Syringes & IV',
+            'respiratory': 'Respiratory',
+            'surgical': 'Surgical',
+            'laboratory': 'Laboratory',
+            'urology': 'Urology',
+            'sports-rehab': 'Sports & Rehab',
+            'nursing-care': 'Nursing Care'
+        };
+
+        // Make product images and names clickable
+        document.querySelectorAll('.product-card').forEach(function (card) {
+            var img = card.querySelector('.product-image');
+            var name = card.querySelector('.product-name');
+            var clickableEls = [img, name].filter(Boolean);
+
+            clickableEls.forEach(function (el) {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    var productName = card.getAttribute('data-product-name') || 
+                                     (card.querySelector('.product-name') ? card.querySelector('.product-name').textContent : 'Product');
+                    var productDesc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').textContent : '';
+                    var productImgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
+                    var productCategory = card.getAttribute('data-category') || '';
+                    var categoryLabel = categoryLabels[productCategory] || productCategory;
+
+                    modalImg.src = productImgSrc;
+                    modalImg.alt = productName;
+                    modalName.textContent = productName;
+                    modalDesc.textContent = productDesc;
+                    modalCategory.textContent = categoryLabel;
+                    modalWhatsApp.href = 'https://wa.me/233598981022?text=' +
+                        encodeURIComponent('Hi, I\'m interested in ' + productName + '. Can you provide pricing and availability?');
+
+                    // Wire up Add to Cart
+                    modalAddToCart.onclick = function () {
+                        var addBtn = card.querySelector('.btn-add-cart');
+                        if (addBtn) addBtn.click();
+                        closeProductModal();
+                    };
+
+                    modal.classList.add('active');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+
+                    // Pause Lenis if available
+                    if (window.lenisInstance) window.lenisInstance.stop();
+                });
+            });
+        });
+
+        function closeProductModal() {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (window.lenisInstance) window.lenisInstance.start();
+        }
+
+        closeBtn.addEventListener('click', closeProductModal);
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeProductModal();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeProductModal();
+        });
+    }
+
+    /* ----------------------------------------------------------
        BACK TO TOP BUTTON
        ---------------------------------------------------------- */
     function initBackToTop() {
@@ -747,6 +837,7 @@
         initContactForm();
         initBookingForm();
         initShop();
+        initProductModal();
         initBackToTop();
     });
 })();
