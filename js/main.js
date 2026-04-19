@@ -743,46 +743,44 @@
             'nursing-care': 'Nursing Care'
         };
 
-        // Make product images and names clickable
+        // Make entire product card clickable (except Add to Cart button)
+        function openProductModal(card) {
+            var productName = card.getAttribute('data-product-name') ||
+                (card.querySelector('.product-name') ? card.querySelector('.product-name').textContent : 'Product');
+            var productDesc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').textContent : '';
+            var productImgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
+            var productCategory = card.getAttribute('data-category') || '';
+            var categoryLabel = categoryLabels[productCategory] || productCategory;
+
+            modalImg.src = productImgSrc;
+            modalImg.alt = productName;
+            modalName.textContent = productName;
+            modalDesc.textContent = productDesc;
+            modalCategory.textContent = categoryLabel;
+            modalWhatsApp.href = 'https://wa.me/233598981022?text=' +
+                encodeURIComponent('Hi, I\'m interested in ' + productName + '. Can you provide pricing and availability?');
+
+            // Wire up Add to Cart
+            modalAddToCart.onclick = function () {
+                var addBtn = card.querySelector('.btn-add-cart');
+                if (addBtn) addBtn.click();
+                closeProductModal();
+            };
+
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+
+            // Pause Lenis if available
+            if (window.lenisInstance) window.lenisInstance.stop();
+        }
+
         document.querySelectorAll('.product-card').forEach(function (card) {
-            var img = card.querySelector('.product-image');
-            var name = card.querySelector('.product-name');
-            var clickableEls = [img, name].filter(Boolean);
-
-            clickableEls.forEach(function (el) {
-                el.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    var productName = card.getAttribute('data-product-name') || 
-                                     (card.querySelector('.product-name') ? card.querySelector('.product-name').textContent : 'Product');
-                    var productDesc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').textContent : '';
-                    var productImgSrc = card.querySelector('img') ? card.querySelector('img').src : '';
-                    var productCategory = card.getAttribute('data-category') || '';
-                    var categoryLabel = categoryLabels[productCategory] || productCategory;
-
-                    modalImg.src = productImgSrc;
-                    modalImg.alt = productName;
-                    modalName.textContent = productName;
-                    modalDesc.textContent = productDesc;
-                    modalCategory.textContent = categoryLabel;
-                    modalWhatsApp.href = 'https://wa.me/233598981022?text=' +
-                        encodeURIComponent('Hi, I\'m interested in ' + productName + '. Can you provide pricing and availability?');
-
-                    // Wire up Add to Cart
-                    modalAddToCart.onclick = function () {
-                        var addBtn = card.querySelector('.btn-add-cart');
-                        if (addBtn) addBtn.click();
-                        closeProductModal();
-                    };
-
-                    modal.classList.add('active');
-                    modal.setAttribute('aria-hidden', 'false');
-                    document.body.style.overflow = 'hidden';
-
-                    // Pause Lenis if available
-                    if (window.lenisInstance) window.lenisInstance.stop();
-                });
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function (e) {
+                // Don't trigger modal if clicking the Add to Cart button
+                if (e.target.closest('.btn-add-cart')) return;
+                openProductModal(card);
             });
         });
 

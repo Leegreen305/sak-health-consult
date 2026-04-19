@@ -890,6 +890,7 @@ small,
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .product-card:hover {
