@@ -12,8 +12,8 @@
         content="Reach SAK Health Consult 24/7. Call, WhatsApp or send us a message for healthcare services in Tarkwa, Ghana.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sakhealthconsult.com/contact.html">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,9 +21,24 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="images/logo.png" alt="SAK Health Consult" width="80" height="80">
+        <div class="loader-bar">
+            <div class="loader-bar-fill" id="loaderFill"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-bar" aria-hidden="true"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
 
     <!-- ======================== HEADER ======================== -->
     <header class="site-header">
@@ -43,6 +58,9 @@
             </nav>
 
             <div class="header-actions">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-badge hidden">0</span>
@@ -73,12 +91,20 @@
     <main>
 
         <!-- ======================== PAGE HERO ======================== -->
-        <section class="page-hero">
+        <section class="page-hero noise-overlay">
             <div class="container">
-                <h1>Get in Touch</h1>
+                <h1 data-text-reveal>Get in Touch</h1>
                 <p>We're here to help — 24 hours a day, 7 days a week</p>
             </div>
         </section>
+
+        <!-- Wave Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z">
+                </path>
+            </svg>
+        </div>
 
         <!-- ======================== CONTACT SECTION ======================== -->
         <section class="section fade-in">
@@ -87,34 +113,31 @@
 
                     <!-- Left: Contact Form -->
                     <div>
-                        <h2 style="margin-bottom:8px;">Send Us a Message</h2>
+                        <h2 class="gradient-text" style="margin-bottom:8px;">Send Us a Message</h2>
                         <p style="margin-bottom:32px;">Fill out the form below and we'll get back to you within 24
                             hours.</p>
 
                         <form id="contact-form">
-                            <div class="form-group">
-                                <label class="form-label" for="contact-name">Full Name</label>
-                                <input type="text" id="contact-name" class="form-input"
-                                    placeholder="Enter your full name" required>
+                            <div class="float-label-group">
+                                <input type="text" id="contact-name" placeholder=" " required>
+                                <label for="contact-name">Full Name</label>
                                 <span class="form-error"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="contact-email">Email Address</label>
-                                <input type="email" id="contact-email" class="form-input" placeholder="your@email.com"
-                                    required>
+                            <div class="float-label-group">
+                                <input type="email" id="contact-email" placeholder=" " required>
+                                <label for="contact-email">Email Address</label>
                                 <span class="form-error"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="contact-phone">Phone Number</label>
-                                <input type="tel" id="contact-phone" class="form-input" placeholder="+233 XXX XXX XXX">
+                            <div class="float-label-group">
+                                <input type="tel" id="contact-phone" placeholder=" ">
+                                <label for="contact-phone">Phone Number</label>
                                 <span class="form-error"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="contact-subject">Subject</label>
-                                <select id="contact-subject" class="form-select">
+                            <div class="float-label-group">
+                                <select id="contact-subject">
                                     <option value="">Select a subject</option>
                                     <option value="General Inquiry">General Inquiry</option>
                                     <option value="Home Healthcare">Home Healthcare</option>
@@ -124,13 +147,13 @@
                                     <option value="Bulk Orders">Bulk Orders</option>
                                     <option value="Other">Other</option>
                                 </select>
+                                <label for="contact-subject">Subject</label>
                                 <span class="form-error"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="contact-message">Message</label>
-                                <textarea id="contact-message" class="form-textarea" placeholder="How can we help you?"
-                                    rows="5" required></textarea>
+                            <div class="float-label-group">
+                                <textarea id="contact-message" placeholder=" " rows="5" required></textarea>
+                                <label for="contact-message">Message</label>
                                 <span class="form-error"></span>
                             </div>
 
@@ -142,7 +165,7 @@
 
                     <!-- Right: Contact Info Card -->
                     <div>
-                        <div class="card" style="padding:40px 36px;">
+                        <div class="card card-3d glass-card gradient-border" style="padding:40px 36px;">
                             <h3 style="margin-bottom:28px;">Contact Information</h3>
 
                             <div style="display:flex; flex-direction:column; gap:24px;">
@@ -230,12 +253,20 @@
             </div>
         </section>
 
+        <!-- Wave Divider -->
+        <div class="section-divider-flip section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z">
+                </path>
+            </svg>
+        </div>
+
         <!-- ======================== MAP SECTION ======================== -->
         <section class="section map-section fade-in">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Find Us</span>
-                    <h2>Our Location</h2>
+                    <h2 class="gradient-text" data-text-reveal>Our Location</h2>
                     <p>Based in Tarkwa, Western Region, Ghana — serving communities across the region and beyond.</p>
                 </div>
                 <iframe
@@ -262,6 +293,14 @@
     <!-- ======================== FOOTER ======================== -->
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get health tips and product updates delivered to your inbox.</p>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                    <button type="submit" class="btn btn-accent">Subscribe</button>
+                </form>
+            </div>
             <div class="footer-grid">
                 <div class="footer-column footer-about">
                     <h4>SAK Health Consult</h4>
@@ -325,7 +364,18 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- Premium Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 
 </html>

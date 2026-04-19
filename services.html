@@ -12,8 +12,8 @@
         content="From home healthcare to medical logistics, health education and screenings — discover how SAK Health Consult brings quality care to your doorstep.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sakhealthconsult.com/services">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,9 +21,24 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="images/logo.png" alt="SAK Health Consult" width="80" height="80">
+        <div class="loader-bar">
+            <div class="loader-bar-fill" id="loaderFill"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-bar" aria-hidden="true"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
 
     <!-- ======================== HEADER ======================== -->
     <header class="site-header">
@@ -43,6 +58,9 @@
             </nav>
 
             <div class="header-actions">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-badge hidden">0</span>
@@ -73,28 +91,35 @@
     <main>
 
         <!-- ======================== PAGE HERO ======================== -->
-        <section class="page-hero">
+        <section class="page-hero noise-overlay">
             <div class="container">
-                <h1>Our Services</h1>
+                <h1 data-text-reveal>Our Services</h1>
                 <p>Comprehensive healthcare solutions delivered to your doorstep — from home visits and medical supplies
                     to education and screenings.</p>
             </div>
         </section>
 
+        <!-- Wave Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z">
+                </path>
+            </svg>
+        </div>
+
         <!-- ======================== SERVICE 1: HOME HEALTHCARE ======================== -->
         <section class="section fade-in">
             <div class="container">
                 <div class="split-content">
-                    <div>
-                        <img src="images/service-home-care.jpg" alt="Home Healthcare Visits"
-                            style="width:100%; height:420px; object-fit:cover; border-radius:var(--border-radius-lg);">
+                    <div class="service-img-wrapper">
+                        <img src="images/service-home-care.jpg" alt="Home Healthcare Visits" loading="lazy" width="600" height="420" data-parallax="0.15">
                     </div>
                     <div>
                         <div class="icon-circle"
                             style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#fff; font-size:1.4rem;">
                             <i class="fas fa-house-medical"></i>
                         </div>
-                        <h2>Doctor Door (Dr. D'Or) — Home Healthcare Visits</h2>
+                        <h2 class="gradient-text" data-text-reveal>Doctor Door (Dr. D'Or) — Home Healthcare Visits</h2>
                         <p style="margin:16px 0;">Our signature Doctor Door (Dr. D'Or) service — meaning 'Doctor at your
                             door' — brings qualified healthcare professionals directly to your home. Whether you need
                             routine check-ups, nursing care, medication administration, or post-operative monitoring,
@@ -132,26 +157,33 @@
                                     style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Elderly
                                 care</li>
                         </ul>
-                        <a href="book.html" class="btn btn-primary">Book Doctor Door</a>
+                        <a href="book.html" class="btn btn-primary gradient-border">Book Doctor Door</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Wave Divider -->
+        <div class="section-divider-flip section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg-alt, #f8fafa)"
+                    d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z"></path>
+            </svg>
+        </div>
+
         <!-- ======================== SERVICE 2: MEDICAL LOGISTICS ======================== -->
-        <section class="section fade-in" style="background: var(--color-bg-alt);">
+        <section class="section fade-in-right" style="background: var(--color-bg-alt);">
             <div class="container">
                 <div class="split-content reverse">
-                    <div>
-                        <img src="images/service-logistics.jpg" alt="Medical Logistics Retail"
-                            style="width:100%; height:420px; object-fit:cover; border-radius:var(--border-radius-lg);">
+                    <div class="service-img-wrapper">
+                        <img src="images/service-logistics.jpg" alt="Medical Logistics Retail" loading="lazy" width="600" height="420" data-parallax="0.15">
                     </div>
                     <div>
                         <div class="icon-circle"
                             style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#fff; font-size:1.4rem;">
                             <i class="fas fa-truck-medical"></i>
                         </div>
-                        <h2>Medical Logistics Retail</h2>
+                        <h2 class="gradient-text" data-text-reveal>Medical Logistics Retail</h2>
                         <p style="margin:16px 0;">A reliable supply chain for all your medical needs. We source, stock
                             and deliver quality medical consumables, diagnostic equipment and healthcare products to
                             individuals, clinics and institutions.</p>
@@ -197,26 +229,33 @@
                                     style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Bulk
                                 institutional orders</li>
                         </ul>
-                        <a href="shop.html" class="btn btn-primary">Browse Supplies</a>
+                        <a href="shop.html" class="btn btn-primary gradient-border">Browse Supplies</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Wave Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z">
+                </path>
+            </svg>
+        </div>
+
         <!-- ======================== SERVICE 3: HEALTH EDUCATION ======================== -->
         <section class="section fade-in">
             <div class="container">
                 <div class="split-content">
-                    <div>
-                        <img src="images/service-education.jpg" alt="Health Education Programmes"
-                            style="width:100%; height:420px; object-fit:cover; border-radius:var(--border-radius-lg);">
+                    <div class="service-img-wrapper">
+                        <img src="images/service-education.jpg" alt="Health Education Programmes" loading="lazy" width="600" height="420" data-parallax="0.15">
                     </div>
                     <div>
                         <div class="icon-circle"
                             style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#fff; font-size:1.4rem;">
                             <i class="fas fa-chalkboard-user"></i>
                         </div>
-                        <h2>Health Education Programmes</h2>
+                        <h2 class="gradient-text" data-text-reveal>Health Education Programmes</h2>
                         <p style="margin:16px 0;">Knowledge is the most powerful tool in preventing disease. Our health
                             education programmes empower communities, workplaces and schools with the knowledge they
                             need to make informed decisions about their well-being.</p>
@@ -254,26 +293,34 @@
                                     style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Mental
                                 health awareness</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-primary">Request a Programme</a>
+                        <a href="contact.html" class="btn btn-primary gradient-border">Request a Programme</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Wave Divider -->
+        <div class="section-divider-flip section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg-alt, #f8fafa)"
+                    d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z"></path>
+            </svg>
+        </div>
+
         <!-- ======================== SERVICE 4: HEALTH SCREENINGS ======================== -->
-        <section class="section fade-in" style="background: var(--color-bg-alt);">
+        <section class="section fade-in-right" style="background: var(--color-bg-alt);">
             <div class="container">
                 <div class="split-content reverse">
-                    <div>
-                        <img src="images/service-screening.jpg" alt="Health Screenings and Assessments"
-                            style="width:100%; height:420px; object-fit:cover; border-radius:var(--border-radius-lg);">
+                    <div class="service-img-wrapper">
+                        <img src="images/service-screening.jpg" alt="Health Screenings and Assessments" loading="lazy" width="600" height="420"
+                            data-parallax="0.15">
                     </div>
                     <div>
                         <div class="icon-circle"
                             style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#fff; font-size:1.4rem;">
                             <i class="fas fa-heartbeat"></i>
                         </div>
-                        <h2>Health Screenings &amp; Assessments</h2>
+                        <h2 class="gradient-text" data-text-reveal>Health Screenings &amp; Assessments</h2>
                         <p style="margin:16px 0;">Early detection saves lives. Our comprehensive health screening
                             services bring professional diagnostic assessments directly to individuals, organisations
                             and community groups — no clinic visit required.</p>
@@ -315,66 +362,74 @@
                                     style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Community
                                 outreach screenings</li>
                         </ul>
-                        <a href="book.html" class="btn btn-primary">Book a Screening</a>
+                        <a href="book.html" class="btn btn-primary gradient-border">Book a Screening</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Wave Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z">
+                </path>
+            </svg>
+        </div>
+
         <!-- ======================== SERVICE 5: TELEMEDICINE ======================== -->
         <section class="section fade-in">
             <div class="container">
                 <div class="split-content">
-                    <div>
-                        <img src="images/service-education.jpg" alt="Telemedicine Consultations"
-                            style="width:100%; height:420px; object-fit:cover; border-radius:var(--border-radius-lg);">
-                    </div>
-                    <div>
-                        <div class="icon-circle"
-                            style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#fff; font-size:1.4rem;">
-                            <i class="fas fa-laptop-medical"></i>
-                        </div>
-                        <span class="section-label">Virtual Care</span>
-                        <h2>Telemedicine Consultations</h2>
-                        <p style="margin:16px 0;">Access quality healthcare from anywhere with our telemedicine service.
-                            Through secure video consultations, our medical professionals provide diagnosis, treatment
-                            plans, prescriptions, and follow-up care — all without leaving your home or office.</p>
-                        <p style="margin-bottom:24px;">Ideal for follow-up appointments, minor ailments, medication
-                            reviews, and health advice.</p>
-                        <h4 style="margin-bottom:12px;">What's Included</h4>
-                        <ul style="list-style:none; padding:0; margin-bottom:28px;">
-                            <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
-                                    class="fas fa-check"
-                                    style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Secure
-                                video consultations with qualified doctors</li>
-                            <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
-                                    class="fas fa-check"
-                                    style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Electronic
-                                prescriptions and referrals</li>
-                            <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
-                                    class="fas fa-check"
-                                    style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Follow-up
-                                appointment scheduling</li>
-                            <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
-                                    class="fas fa-check"
-                                    style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Medication
-                                review and management</li>
-                            <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
-                                    class="fas fa-check"
-                                    style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Health
-                                advice and wellness guidance</li>
-                            <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
-                                    class="fas fa-check"
-                                    style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Remote
-                                monitoring support</li>
-                            <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
-                                    class="fas fa-check"
-                                    style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Available
-                                24/7 for urgent consultations</li>
-                        </ul>
-                        <a href="book.html" class="btn btn-primary">Book a Consultation</a>
+                    <div class="service-img-wrapper">
+                        <img src="images/service-education.jpg" alt="Telemedicine Consultations" loading="lazy" width="600" height="420" data-parallax="0.15">
                     </div>
                 </div>
+                <div>
+                    <div class="icon-circle"
+                        style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#fff; font-size:1.4rem;">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <span class="section-label">Virtual Care</span>
+                    <h2 class="gradient-text" data-text-reveal>Telemedicine Consultations</h2>
+                    <p style="margin:16px 0;">Access quality healthcare from anywhere with our telemedicine service.
+                        Through secure video consultations, our medical professionals provide diagnosis, treatment
+                        plans, prescriptions, and follow-up care — all without leaving your home or office.</p>
+                    <p style="margin-bottom:24px;">Ideal for follow-up appointments, minor ailments, medication
+                        reviews, and health advice.</p>
+                    <h4 style="margin-bottom:12px;">What's Included</h4>
+                    <ul style="list-style:none; padding:0; margin-bottom:28px;">
+                        <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
+                                class="fas fa-check"
+                                style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Secure
+                            video consultations with qualified doctors</li>
+                        <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
+                                class="fas fa-check"
+                                style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Electronic
+                            prescriptions and referrals</li>
+                        <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
+                                class="fas fa-check"
+                                style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Follow-up
+                            appointment scheduling</li>
+                        <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
+                                class="fas fa-check"
+                                style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Medication
+                            review and management</li>
+                        <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
+                                class="fas fa-check"
+                                style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Health
+                            advice and wellness guidance</li>
+                        <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
+                                class="fas fa-check"
+                                style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Remote
+                            monitoring support</li>
+                        <li style="padding:6px 0; color:var(--color-text-light); font-size:0.95rem;"><i
+                                class="fas fa-check"
+                                style="color:var(--color-primary); margin-right:10px; font-size:0.85rem;"></i>Available
+                            24/7 for urgent consultations</li>
+                    </ul>
+                    <a href="book.html" class="btn btn-primary gradient-border">Book a Consultation</a>
+                </div>
+            </div>
             </div>
         </section>
 
@@ -383,13 +438,13 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Pricing</span>
-                    <h2>Flexible Pricing for Every Need</h2>
+                    <h2 class="gradient-text" data-text-reveal>Flexible Pricing for Every Need</h2>
                     <p>We understand that every individual, group and organisation has unique healthcare requirements.
                         That's why we offer custom pricing tailored to the scope and scale of services you need —
                         whether it's a single home visit or a full corporate wellness programme.</p>
                 </div>
                 <div style="text-align:center;">
-                    <a href="contact.html" class="btn btn-primary btn-lg">Contact Us for Pricing</a>
+                    <a href="contact.html" class="btn btn-primary btn-lg gradient-border">Contact Us for Pricing</a>
                 </div>
             </div>
         </section>
@@ -412,6 +467,14 @@
     <!-- ======================== FOOTER ======================== -->
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get health tips and product updates delivered to your inbox.</p>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                    <button type="submit" class="btn btn-accent">Subscribe</button>
+                </form>
+            </div>
             <div class="footer-grid">
                 <!-- Column 1: About -->
                 <div class="footer-column footer-about">
@@ -479,7 +542,18 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- Premium Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 
 </html>

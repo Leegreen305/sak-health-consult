@@ -12,8 +12,8 @@
         content="Browse the full Liderson Medical 2025 catalog. Bandages, wound care, PPE, surgical, laboratory and more.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sakhealthconsult.com/shop.html">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,9 +21,24 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="images/logo.png" alt="SAK Health Consult" width="80" height="80">
+        <div class="loader-bar">
+            <div class="loader-bar-fill" id="loaderFill"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-bar" aria-hidden="true"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
 
     <!-- ======================== HEADER ======================== -->
     <header class="site-header">
@@ -43,10 +58,13 @@
             </nav>
 
             <div class="header-actions">
-                <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button type="button" class="cart-icon" id="cart-toggle" aria-label="Shopping cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-badge hidden">0</span>
-                </a>
+                </button>
                 <a href="book.html" class="btn-nav-cta">Book Appointment</a>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                     <span></span>
@@ -73,9 +91,9 @@
     <main>
 
         <!-- ======================== PAGE HERO ======================== -->
-        <section class="page-hero">
+        <section class="page-hero noise-overlay">
             <div class="container">
-                <h1>Medical Supplies &amp; Equipment</h1>
+                <h1 data-text-reveal>Medical Supplies &amp; Equipment</h1>
                 <p>Professional-grade medical consumables, instruments and equipment from certified global manufacturers
                 </p>
             </div>
@@ -89,6 +107,11 @@
                         Healthcare institutions, clinics and pharmacies — we offer bulk procurement support with
                         competitive pricing. Contact us for wholesale orders and custom supply packages.
                     </p>
+                    <p style="margin-top:8px; font-size:0.9rem; opacity:0.9;"><i class="fas fa-info-circle"
+                            style="margin-right:6px; color:var(--color-accent);"></i>
+                        <strong>Minimum order: 10 units per product for retail customers.</strong> Contact us for
+                        bulk/institutional pricing.
+                    </p>
                     <a href="contact.html" class="btn btn-accent btn-sm" style="margin-top:12px;">Request a Quote</a>
                 </div>
             </div>
@@ -99,36 +122,36 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Liderson Medical 2025 Catalog</span>
-                    <h2>Featured Products</h2>
+                    <h2 data-text-reveal>Featured Products</h2>
                     <p>Professional medical supplies distributed by SAK Health Consult from certified global
                         manufacturers.</p>
                 </div>
 
                 <!-- Category Filter -->
                 <div class="category-filter">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="bandages">Bandages</button>
-                    <button class="filter-btn" data-filter="wound-care">Wound Care</button>
-                    <button class="filter-btn" data-filter="gauze-cotton">Gauze &amp; Cotton</button>
-                    <button class="filter-btn" data-filter="surgical-tapes">Surgical Tapes</button>
-                    <button class="filter-btn" data-filter="ppe">PPE</button>
-                    <button class="filter-btn" data-filter="syringes-iv">Syringes &amp; IV</button>
-                    <button class="filter-btn" data-filter="respiratory">Respiratory</button>
-                    <button class="filter-btn" data-filter="surgical">Surgical</button>
-                    <button class="filter-btn" data-filter="laboratory">Laboratory</button>
-                    <button class="filter-btn" data-filter="urology">Urology</button>
-                    <button class="filter-btn" data-filter="sports-rehab">Sports &amp; Rehab</button>
-                    <button class="filter-btn" data-filter="nursing-care">Nursing Care</button>
+                    <button class="filter-btn active gradient-border" data-filter="all">All</button>
+                    <button class="filter-btn gradient-border" data-filter="bandages">Bandages</button>
+                    <button class="filter-btn gradient-border" data-filter="wound-care">Wound Care</button>
+                    <button class="filter-btn gradient-border" data-filter="gauze-cotton">Gauze &amp; Cotton</button>
+                    <button class="filter-btn gradient-border" data-filter="surgical-tapes">Surgical Tapes</button>
+                    <button class="filter-btn gradient-border" data-filter="ppe">PPE</button>
+                    <button class="filter-btn gradient-border" data-filter="syringes-iv">Syringes &amp; IV</button>
+                    <button class="filter-btn gradient-border" data-filter="respiratory">Respiratory</button>
+                    <button class="filter-btn gradient-border" data-filter="surgical">Surgical</button>
+                    <button class="filter-btn gradient-border" data-filter="laboratory">Laboratory</button>
+                    <button class="filter-btn gradient-border" data-filter="urology">Urology</button>
+                    <button class="filter-btn gradient-border" data-filter="sports-rehab">Sports &amp; Rehab</button>
+                    <button class="filter-btn gradient-border" data-filter="nursing-care">Nursing Care</button>
                 </div>
 
                 <!-- Product Grid -->
                 <div class="product-grid">
 
                     <!-- ========== BANDAGES ========== -->
-                    <div class="product-card" data-category="bandages" data-product-id="lid-001"
+                    <div class="product-card card-3d" data-category="bandages" data-product-id="lid-001"
                         data-product-name="High Elastic Bandage" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/high-elastic-bandage.jpg" alt="High Elastic Bandage">
+                            <img src="images/products/high-elastic-bandage.jpg" alt="High Elastic Bandage" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">High Elastic Bandage</h3>
@@ -139,10 +162,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="bandages" data-product-id="lid-002"
+                    <div class="product-card card-3d" data-category="bandages" data-product-id="lid-002"
                         data-product-name="PBT Elastic Bandage" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/pbt-elastic-bandage.jpg" alt="PBT Elastic Bandage">
+                            <img src="images/products/pbt-elastic-bandage.jpg" alt="PBT Elastic Bandage" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">PBT Elastic Bandage</h3>
@@ -153,10 +176,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="bandages" data-product-id="lid-003"
+                    <div class="product-card card-3d" data-category="bandages" data-product-id="lid-003"
                         data-product-name="Orthopedic Casting Tape" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/orthopedic-casting-tape.jpg" alt="Orthopedic Casting Tape">
+                            <img src="images/products/orthopedic-casting-tape.jpg" alt="Orthopedic Casting Tape" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Orthopedic Casting Tape</h3>
@@ -168,10 +191,10 @@
                     </div>
 
                     <!-- ========== WOUND CARE ========== -->
-                    <div class="product-card" data-category="wound-care" data-product-id="lid-004"
+                    <div class="product-card card-3d" data-category="wound-care" data-product-id="lid-004"
                         data-product-name="Hydrocolloid Dressing" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/hydrocolloid-dressing.jpg" alt="Hydrocolloid Dressing">
+                            <img src="images/products/hydrocolloid-dressing.jpg" alt="Hydrocolloid Dressing" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Hydrocolloid Dressing</h3>
@@ -182,10 +205,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="wound-care" data-product-id="lid-005"
+                    <div class="product-card card-3d" data-category="wound-care" data-product-id="lid-005"
                         data-product-name="Silicone Foam Dressing" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/silicone-foam-dressing.jpg" alt="Silicone Foam Dressing">
+                            <img src="images/products/silicone-foam-dressing.jpg" alt="Silicone Foam Dressing" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Silicone Foam Dressing</h3>
@@ -196,10 +219,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="wound-care" data-product-id="lid-006"
+                    <div class="product-card card-3d" data-category="wound-care" data-product-id="lid-006"
                         data-product-name="Alginate Dressing with Silver" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/alginate-dressing-silver.jpg" alt="Alginate Dressing with Silver">
+                            <img src="images/products/alginate-dressing-silver.jpg" alt="Alginate Dressing with Silver" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Alginate Dressing with Silver</h3>
@@ -211,10 +234,10 @@
                     </div>
 
                     <!-- ========== GAUZE & COTTON ========== -->
-                    <div class="product-card" data-category="gauze-cotton" data-product-id="lid-007"
+                    <div class="product-card card-3d" data-category="gauze-cotton" data-product-id="lid-007"
                         data-product-name="Absorbent Gauze Roll" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/absorbent-gauze-roll.jpg" alt="Absorbent Gauze Roll">
+                            <img src="images/products/absorbent-gauze-roll.jpg" alt="Absorbent Gauze Roll" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Absorbent Gauze Roll</h3>
@@ -225,10 +248,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="gauze-cotton" data-product-id="lid-008"
+                    <div class="product-card card-3d" data-category="gauze-cotton" data-product-id="lid-008"
                         data-product-name="Absorbent Cotton Wool" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/absorbent-cotton-wool.jpg" alt="Absorbent Cotton Wool">
+                            <img src="images/products/absorbent-cotton-wool.jpg" alt="Absorbent Cotton Wool" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Absorbent Cotton Wool</h3>
@@ -239,10 +262,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="gauze-cotton" data-product-id="lid-009"
+                    <div class="product-card card-3d" data-category="gauze-cotton" data-product-id="lid-009"
                         data-product-name="Sterile Gauze Swabs" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/sterile-gauze-swabs.jpg" alt="Sterile Gauze Swabs">
+                            <img src="images/products/sterile-gauze-swabs.jpg" alt="Sterile Gauze Swabs" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Sterile Gauze Swabs</h3>
@@ -254,10 +277,10 @@
                     </div>
 
                     <!-- ========== SURGICAL TAPES ========== -->
-                    <div class="product-card" data-category="surgical-tapes" data-product-id="lid-010"
+                    <div class="product-card card-3d" data-category="surgical-tapes" data-product-id="lid-010"
                         data-product-name="Zinc Oxide Plaster" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/zinc-oxide-plaster.jpg" alt="Zinc Oxide Plaster">
+                            <img src="images/products/zinc-oxide-plaster.jpg" alt="Zinc Oxide Plaster" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Zinc Oxide Plaster</h3>
@@ -268,10 +291,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="surgical-tapes" data-product-id="lid-011"
+                    <div class="product-card card-3d" data-category="surgical-tapes" data-product-id="lid-011"
                         data-product-name="Non-Woven Surgical Tape" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/non-woven-surgical-tape.jpg" alt="Non-Woven Surgical Tape">
+                            <img src="images/products/non-woven-surgical-tape.jpg" alt="Non-Woven Surgical Tape" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Non-Woven Surgical Tape</h3>
@@ -281,10 +304,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="surgical-tapes" data-product-id="lid-012"
+                    <div class="product-card card-3d" data-category="surgical-tapes" data-product-id="lid-012"
                         data-product-name="Waterproof Adhesive Tape" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/waterproof-adhesive-tape.jpg" alt="Waterproof Adhesive Tape">
+                            <img src="images/products/waterproof-adhesive-tape.jpg" alt="Waterproof Adhesive Tape" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Waterproof Adhesive Tape</h3>
@@ -296,10 +319,10 @@
                     </div>
 
                     <!-- ========== PPE ========== -->
-                    <div class="product-card" data-category="ppe" data-product-id="lid-013"
+                    <div class="product-card card-3d" data-category="ppe" data-product-id="lid-013"
                         data-product-name="Nitrile Examination Gloves" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/nitrile-examination-gloves.jpg" alt="Nitrile Examination Gloves">
+                            <img src="images/products/nitrile-examination-gloves.jpg" alt="Nitrile Examination Gloves" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Nitrile Examination Gloves</h3>
@@ -310,10 +333,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="ppe" data-product-id="lid-014"
+                    <div class="product-card card-3d" data-category="ppe" data-product-id="lid-014"
                         data-product-name="3-Ply Surgical Face Mask" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/3-ply-surgical-face-mask.jpg" alt="3-Ply Surgical Face Mask">
+                            <img src="images/products/3-ply-surgical-face-mask.jpg" alt="3-Ply Surgical Face Mask" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">3-Ply Surgical Face Mask</h3>
@@ -323,10 +346,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="ppe" data-product-id="lid-015"
+                    <div class="product-card card-3d" data-category="ppe" data-product-id="lid-015"
                         data-product-name="Isolation Gown" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/isolation-gown.jpg" alt="Isolation Gown">
+                            <img src="images/products/isolation-gown.jpg" alt="Isolation Gown" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Isolation Gown</h3>
@@ -338,10 +361,10 @@
                     </div>
 
                     <!-- ========== SYRINGES & IV ========== -->
-                    <div class="product-card" data-category="syringes-iv" data-product-id="lid-016"
+                    <div class="product-card card-3d" data-category="syringes-iv" data-product-id="lid-016"
                         data-product-name="Disposable Syringes" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/disposable-syringes.jpg" alt="Disposable Syringes">
+                            <img src="images/products/disposable-syringes.jpg" alt="Disposable Syringes" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Disposable Syringes</h3>
@@ -352,10 +375,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="syringes-iv" data-product-id="lid-017"
+                    <div class="product-card card-3d" data-category="syringes-iv" data-product-id="lid-017"
                         data-product-name="IV Administration Set" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/iv-administration-set.jpg" alt="IV Administration Set">
+                            <img src="images/products/iv-administration-set.jpg" alt="IV Administration Set" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">IV Administration Set</h3>
@@ -366,10 +389,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="syringes-iv" data-product-id="lid-018"
+                    <div class="product-card card-3d" data-category="syringes-iv" data-product-id="lid-018"
                         data-product-name="Insulin Syringe" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/insulin-syringe.jpg" alt="Insulin Syringe">
+                            <img src="images/products/insulin-syringe.jpg" alt="Insulin Syringe" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Insulin Syringe</h3>
@@ -381,10 +404,10 @@
                     </div>
 
                     <!-- ========== RESPIRATORY ========== -->
-                    <div class="product-card" data-category="respiratory" data-product-id="lid-019"
+                    <div class="product-card card-3d" data-category="respiratory" data-product-id="lid-019"
                         data-product-name="Oxygen Mask with Reservoir" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/oxygen-mask-reservoir.jpg" alt="Oxygen Mask with Reservoir">
+                            <img src="images/products/oxygen-mask-reservoir.jpg" alt="Oxygen Mask with Reservoir" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Oxygen Mask with Reservoir</h3>
@@ -395,10 +418,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="respiratory" data-product-id="lid-020"
+                    <div class="product-card card-3d" data-category="respiratory" data-product-id="lid-020"
                         data-product-name="Nebulizer Mask" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/nebulizer-mask.jpg" alt="Nebulizer Mask">
+                            <img src="images/products/nebulizer-mask.jpg" alt="Nebulizer Mask" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Nebulizer Mask</h3>
@@ -409,10 +432,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="respiratory" data-product-id="lid-021"
+                    <div class="product-card card-3d" data-category="respiratory" data-product-id="lid-021"
                         data-product-name="CPAP Mask" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/cpap-mask.jpg" alt="CPAP Mask">
+                            <img src="images/products/cpap-mask.jpg" alt="CPAP Mask" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">CPAP Mask</h3>
@@ -424,10 +447,11 @@
                     </div>
 
                     <!-- ========== SURGICAL ========== -->
-                    <div class="product-card" data-category="surgical" data-product-id="lid-022"
+                    <div class="product-card card-3d" data-category="surgical" data-product-id="lid-022"
                         data-product-name="Polyglactin Absorbable Sutures" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/polyglactin-absorbable-sutures.jpg" alt="Polyglactin Absorbable Sutures">
+                            <img src="images/products/polyglactin-absorbable-sutures.jpg"
+                                alt="Polyglactin Absorbable Sutures" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Polyglactin Absorbable Sutures</h3>
@@ -438,10 +462,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="surgical" data-product-id="lid-023"
+                    <div class="product-card card-3d" data-category="surgical" data-product-id="lid-023"
                         data-product-name="Surgical Blade Set" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/surgical-blade-set.jpg" alt="Surgical Blade Set">
+                            <img src="images/products/surgical-blade-set.jpg" alt="Surgical Blade Set" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Surgical Blade Set</h3>
@@ -452,10 +476,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="surgical" data-product-id="lid-024"
+                    <div class="product-card card-3d" data-category="surgical" data-product-id="lid-024"
                         data-product-name="Sterile Dressing Set" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/sterile-dressing-set.jpg" alt="Sterile Dressing Set">
+                            <img src="images/products/sterile-dressing-set.jpg" alt="Sterile Dressing Set" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Sterile Dressing Set</h3>
@@ -467,10 +491,10 @@
                     </div>
 
                     <!-- ========== LABORATORY ========== -->
-                    <div class="product-card" data-category="laboratory" data-product-id="lid-025"
+                    <div class="product-card card-3d" data-category="laboratory" data-product-id="lid-025"
                         data-product-name="Blood Collection Tubes" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/blood-collection-tubes.jpg" alt="Blood Collection Tubes">
+                            <img src="images/products/blood-collection-tubes.jpg" alt="Blood Collection Tubes" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Blood Collection Tubes</h3>
@@ -481,10 +505,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="laboratory" data-product-id="lid-026"
+                    <div class="product-card card-3d" data-category="laboratory" data-product-id="lid-026"
                         data-product-name="Specimen Containers" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/specimen-containers.jpg" alt="Specimen Containers">
+                            <img src="images/products/specimen-containers.jpg" alt="Specimen Containers" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Specimen Containers</h3>
@@ -495,10 +519,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="laboratory" data-product-id="lid-027"
+                    <div class="product-card card-3d" data-category="laboratory" data-product-id="lid-027"
                         data-product-name="Transfer Pipettes" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/transfer-pipettes.jpg" alt="Transfer Pipettes">
+                            <img src="images/products/transfer-pipettes.jpg" alt="Transfer Pipettes" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Transfer Pipettes</h3>
@@ -510,10 +534,10 @@
                     </div>
 
                     <!-- ========== UROLOGY ========== -->
-                    <div class="product-card" data-category="urology" data-product-id="lid-028"
+                    <div class="product-card card-3d" data-category="urology" data-product-id="lid-028"
                         data-product-name="Latex Foley Catheter" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/latex-foley-catheter.jpg" alt="Latex Foley Catheter">
+                            <img src="images/products/latex-foley-catheter.jpg" alt="Latex Foley Catheter" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Latex Foley Catheter</h3>
@@ -524,10 +548,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="urology" data-product-id="lid-029"
+                    <div class="product-card card-3d" data-category="urology" data-product-id="lid-029"
                         data-product-name="Urine Drainage Bag" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/urine-drainage-bag.jpg" alt="Urine Drainage Bag">
+                            <img src="images/products/urine-drainage-bag.jpg" alt="Urine Drainage Bag" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Urine Drainage Bag</h3>
@@ -538,10 +562,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="urology" data-product-id="lid-030"
+                    <div class="product-card card-3d" data-category="urology" data-product-id="lid-030"
                         data-product-name="Thoracic Drainage Tube" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/thoracic-drainage-tube.jpg" alt="Thoracic Drainage Tube">
+                            <img src="images/products/thoracic-drainage-tube.jpg" alt="Thoracic Drainage Tube" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Thoracic Drainage Tube</h3>
@@ -552,10 +576,10 @@
                     </div>
 
                     <!-- ========== SPORTS & REHAB ========== -->
-                    <div class="product-card" data-category="sports-rehab" data-product-id="lid-031"
+                    <div class="product-card card-3d" data-category="sports-rehab" data-product-id="lid-031"
                         data-product-name="Knee Support Brace" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/knee-support-brace.jpg" alt="Knee Support Brace">
+                            <img src="images/products/knee-support-brace.jpg" alt="Knee Support Brace" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Knee Support Brace</h3>
@@ -566,10 +590,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="sports-rehab" data-product-id="lid-032"
+                    <div class="product-card card-3d" data-category="sports-rehab" data-product-id="lid-032"
                         data-product-name="Wrist Support" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/wrist-support.jpg" alt="Wrist Support">
+                            <img src="images/products/wrist-support.jpg" alt="Wrist Support" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Wrist Support</h3>
@@ -580,10 +604,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="sports-rehab" data-product-id="lid-033"
+                    <div class="product-card card-3d" data-category="sports-rehab" data-product-id="lid-033"
                         data-product-name="Lumbar Back Support" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/lumbar-back-support.jpg" alt="Lumbar Back Support">
+                            <img src="images/products/lumbar-back-support.jpg" alt="Lumbar Back Support" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Lumbar Back Support</h3>
@@ -595,10 +619,10 @@
                     </div>
 
                     <!-- ========== NURSING CARE ========== -->
-                    <div class="product-card" data-category="nursing-care" data-product-id="lid-034"
+                    <div class="product-card card-3d" data-category="nursing-care" data-product-id="lid-034"
                         data-product-name="Absorbent Underpads" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/absorbent-underpads.jpg" alt="Absorbent Underpads">
+                            <img src="images/products/absorbent-underpads.jpg" alt="Absorbent Underpads" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Absorbent Underpads</h3>
@@ -609,10 +633,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="nursing-care" data-product-id="lid-035"
+                    <div class="product-card card-3d" data-category="nursing-care" data-product-id="lid-035"
                         data-product-name="Adult Diapers" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/adult-diapers.jpg" alt="Adult Diapers">
+                            <img src="images/products/adult-diapers.jpg" alt="Adult Diapers" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Adult Diapers</h3>
@@ -623,10 +647,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="nursing-care" data-product-id="lid-036"
+                    <div class="product-card card-3d" data-category="nursing-care" data-product-id="lid-036"
                         data-product-name="Dental Bibs" data-product-price="Contact for Price">
                         <div class="product-image">
-                            <img src="images/products/dental-bibs.jpg" alt="Dental Bibs">
+                            <img src="images/products/dental-bibs.jpg" alt="Dental Bibs" loading="lazy" width="400" height="300">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Dental Bibs</h3>
@@ -642,12 +666,12 @@
         </section>
 
         <!-- ======================== FULL CATALOG SECTION ======================== -->
-        <section class="section fade-in"
+        <section class="section fade-in mesh-gradient"
             style="background: linear-gradient(135deg, var(--color-bg-alt) 0%, #F5F7F6 50%, var(--color-bg) 100%);">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Complete Catalog</span>
-                    <h2>Browse Our Complete Catalog</h2>
+                    <h2 data-text-reveal>Browse Our Complete Catalog</h2>
                     <p>SAK Health Consult distributes the full Liderson Medical product range. Explore all 19 categories
                         below.</p>
                 </div>
@@ -808,6 +832,14 @@
     <!-- ======================== FOOTER ======================== -->
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get health tips and product updates delivered to your inbox.</p>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                    <button type="submit" class="btn btn-accent">Subscribe</button>
+                </form>
+            </div>
             <div class="footer-grid">
                 <!-- Column 1: About -->
                 <div class="footer-column footer-about">
@@ -875,7 +907,40 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- ======================== CART MODAL ======================== -->
+    <div class="cart-modal-overlay" id="cart-overlay"></div>
+    <div class="cart-modal glass-card" id="cart-modal" aria-hidden="true" role="dialog" aria-label="Shopping Cart">
+        <div class="cart-modal-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button type="button" class="cart-modal-close" id="cart-close" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-modal-body" id="cart-items">
+            <!-- Cart items rendered by JS -->
+        </div>
+        <div class="cart-modal-footer">
+            <div class="cart-minimum-notice">
+                <i class="fas fa-info-circle"></i>
+                <span>Minimum order: 10 units per product for retail customers. Contact us for bulk/institutional
+                    pricing.</span>
+            </div>
+            <div class="cart-total" id="cart-total"></div>
+            <button type="button" class="btn btn-accent btn-lg cart-checkout-btn" id="cart-checkout">Submit Order
+                Request</button>
+        </div>
+    </div>
+
+    <!-- Premium Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 
 </html>

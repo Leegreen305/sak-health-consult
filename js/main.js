@@ -7,6 +7,76 @@
     'use strict';
 
     /* ----------------------------------------------------------
+       PAGE LOADER
+       ---------------------------------------------------------- */
+    function initPageLoader() {
+        var loader = document.getElementById('pageLoader');
+        var fill = document.getElementById('loaderFill');
+        if (!loader) return;
+
+        var progress = 0;
+        var interval = setInterval(function () {
+            progress += Math.random() * 30;
+            if (progress > 90) progress = 90;
+            if (fill) fill.style.width = progress + '%';
+        }, 200);
+
+        window.addEventListener('load', function () {
+            clearInterval(interval);
+            if (fill) fill.style.width = '100%';
+            setTimeout(function () {
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(loader, {
+                        opacity: 0,
+                        duration: 0.6,
+                        ease: 'power2.inOut',
+                        onComplete: function () {
+                            loader.style.display = 'none';
+                            document.body.classList.add('page-loaded');
+                        }
+                    });
+                } else {
+                    loader.classList.add('loaded');
+                    setTimeout(function () { loader.style.display = 'none'; }, 500);
+                    document.body.classList.add('page-loaded');
+                }
+            }, 300);
+        });
+    }
+
+    /* ----------------------------------------------------------
+       DARK MODE TOGGLE
+       ---------------------------------------------------------- */
+    function initDarkMode() {
+        var toggle = document.getElementById('darkModeToggle');
+        if (!toggle) return;
+
+        var icon = toggle.querySelector('i');
+        var savedTheme = localStorage.getItem('sak-theme');
+
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
+        }
+
+        toggle.addEventListener('click', function () {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('sak-theme', 'light');
+                if (icon) { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('sak-theme', 'dark');
+                if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
+            }
+        });
+    }
+
+    // Run page loader immediately (before DOMContentLoaded)
+    initPageLoader();
+
+    /* ----------------------------------------------------------
        HEADER SCROLL BEHAVIOR
        ---------------------------------------------------------- */
     function initHeaderScroll() {
@@ -71,33 +141,11 @@
 
     /* ----------------------------------------------------------
        SCROLL FADE-IN ANIMATIONS
+       (Removed — now handled by GSAP ScrollTrigger in js/animations.js)
        ---------------------------------------------------------- */
     function initScrollAnimations() {
-        var elements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
-        if (!elements.length) return;
-
-        if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(
-                function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.01, rootMargin: '0px 0px -40px 0px' }
-            );
-
-            elements.forEach(function (el) {
-                observer.observe(el);
-            });
-        } else {
-            // Fallback: show everything
-            elements.forEach(function (el) {
-                el.classList.add('visible');
-            });
-        }
+        // No-op: GSAP ScrollTrigger handles all scroll animations now.
+        // Keeping function stub so DOMContentLoaded call doesn't error.
     }
 
     /* ----------------------------------------------------------
@@ -424,6 +472,8 @@
         }
 
         // Cart — sessionStorage
+        var MINIMUM_QTY_PER_PRODUCT = 10;
+
         function getCart() {
             try {
                 return JSON.parse(sessionStorage.getItem('sak_cart')) || [];
@@ -446,6 +496,7 @@
             }
             saveCart(cart);
             updateCartBadge();
+            renderCartModal();
         }
 
         function updateCartBadge() {
@@ -459,6 +510,164 @@
                 } else {
                     badge.classList.add('hidden');
                 }
+            });
+        }
+
+        function removeFromCart(productId) {
+            var cart = getCart().filter(function (item) { return item.id !== productId; });
+            saveCart(cart);
+            updateCartBadge();
+            renderCartModal();
+        }
+
+        function updateQty(productId, newQty) {
+            var cart = getCart();
+            var item = cart.find(function (i) { return i.id === productId; });
+            if (item) {
+                item.qty = Math.max(1, parseInt(newQty) || 1);
+            }
+            saveCart(cart);
+            updateCartBadge();
+            renderCartModal();
+        }
+
+        // Cart Modal
+        var cartModal = document.getElementById('cart-modal');
+        var cartOverlay = document.getElementById('cart-overlay');
+        var cartToggle = document.getElementById('cart-toggle');
+        var cartClose = document.getElementById('cart-close');
+        var cartItemsEl = document.getElementById('cart-items');
+        var cartTotalEl = document.getElementById('cart-total');
+        var cartCheckoutBtn = document.getElementById('cart-checkout');
+
+        function openCart() {
+            if (!cartModal) return;
+            cartModal.classList.add('open');
+            cartModal.setAttribute('aria-hidden', 'false');
+            if (cartOverlay) cartOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            renderCartModal();
+        }
+
+        function closeCart() {
+            if (!cartModal) return;
+            cartModal.classList.remove('open');
+            cartModal.setAttribute('aria-hidden', 'true');
+            if (cartOverlay) cartOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function renderCartModal() {
+            if (!cartItemsEl) return;
+            var cart = getCart();
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML =
+                    '<div class="cart-empty">' +
+                    '<i class="fas fa-shopping-bag"></i>' +
+                    '<p>Your cart is empty</p>' +
+                    '<p class="cart-empty-sub">Browse our catalog and add items to get started.</p>' +
+                    '</div>';
+                if (cartTotalEl) cartTotalEl.innerHTML = '';
+                return;
+            }
+
+            var html = '';
+            var totalItems = 0;
+            cart.forEach(function (item) {
+                totalItems += item.qty;
+                var belowMin = item.qty < MINIMUM_QTY_PER_PRODUCT;
+                html +=
+                    '<div class="cart-item" data-cart-id="' + item.id + '">' +
+                    '<div class="cart-item-info">' +
+                    '<span class="cart-item-name">' + item.name + '</span>' +
+                    '<span class="cart-item-price">' + (item.price ? 'GHS ' + item.price.toFixed(2) : 'Contact for Price') + '</span>' +
+                    (belowMin ? '<span class="cart-item-warning"><i class="fas fa-exclamation-triangle"></i> Min. 10 units required</span>' : '') +
+                    '</div>' +
+                    '<div class="cart-item-actions">' +
+                    '<button type="button" class="cart-qty-btn cart-qty-minus" data-id="' + item.id + '" aria-label="Decrease quantity">−</button>' +
+                    '<input type="number" class="cart-qty-input" value="' + item.qty + '" min="1" data-id="' + item.id + '" aria-label="Quantity">' +
+                    '<button type="button" class="cart-qty-btn cart-qty-plus" data-id="' + item.id + '" aria-label="Increase quantity">+</button>' +
+                    '<button type="button" class="cart-remove-btn" data-id="' + item.id + '" aria-label="Remove item"><i class="fas fa-trash-alt"></i></button>' +
+                    '</div>' +
+                    '</div>';
+            });
+            cartItemsEl.innerHTML = html;
+
+            if (cartTotalEl) {
+                cartTotalEl.innerHTML = '<strong>Total items: ' + totalItems + '</strong> (' + cart.length + ' product' + (cart.length > 1 ? 's' : '') + ')';
+            }
+        }
+
+        // Cart modal event listeners
+        if (cartToggle) {
+            cartToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openCart();
+            });
+        }
+        if (cartClose) cartClose.addEventListener('click', closeCart);
+        if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+        // Handle cart item interactions (delegated)
+        if (cartItemsEl) {
+            cartItemsEl.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var target = e.target.closest('button');
+                if (!target) return;
+                var id = target.getAttribute('data-id');
+                if (!id) return;
+
+                if (target.classList.contains('cart-qty-minus')) {
+                    var cart = getCart();
+                    var item = cart.find(function (i) { return i.id === id; });
+                    if (item && item.qty > 1) {
+                        updateQty(id, item.qty - 1);
+                    }
+                } else if (target.classList.contains('cart-qty-plus')) {
+                    var cart = getCart();
+                    var item = cart.find(function (i) { return i.id === id; });
+                    if (item) {
+                        updateQty(id, item.qty + 1);
+                    }
+                } else if (target.classList.contains('cart-remove-btn')) {
+                    removeFromCart(id);
+                }
+            });
+
+            cartItemsEl.addEventListener('change', function (e) {
+                if (e.target.classList.contains('cart-qty-input')) {
+                    var id = e.target.getAttribute('data-id');
+                    updateQty(id, e.target.value);
+                }
+            });
+        }
+
+        // Checkout validation with minimum order
+        if (cartCheckoutBtn) {
+            cartCheckoutBtn.addEventListener('click', function () {
+                var cart = getCart();
+                if (cart.length === 0) {
+                    alert('Your cart is empty. Please add items before submitting an order.');
+                    return;
+                }
+
+                var belowMin = cart.filter(function (item) { return item.qty < MINIMUM_QTY_PER_PRODUCT; });
+                if (belowMin.length > 0) {
+                    var names = belowMin.map(function (item) { return item.name + ' (' + item.qty + ' units)'; }).join('\n• ');
+                    alert('Minimum order not met.\n\nThe following products require at least ' + MINIMUM_QTY_PER_PRODUCT + ' units each:\n\n• ' + names + '\n\nPlease increase quantities to meet the minimum order requirement for retail customers.');
+                    return;
+                }
+
+                // Build WhatsApp message with order details
+                var msg = 'Hello SAK Health Consult, I would like to place an order:\n\n';
+                cart.forEach(function (item) {
+                    msg += '• ' + item.name + ' — Qty: ' + item.qty + '\n';
+                });
+                msg += '\nPlease confirm availability and pricing. Thank you!';
+                var whatsappUrl = 'https://wa.me/233544528317?text=' + encodeURIComponent(msg);
+                window.open(whatsappUrl, '_blank');
             });
         }
 
@@ -490,11 +699,13 @@
             }, 1200);
         });
 
-        // Expose updateCartBadge globally for other pages
+        // Expose cart API globally for other pages
         window.SAKCart = {
             addToCart: addToCart,
             getCart: getCart,
             updateCartBadge: updateCartBadge,
+            openCart: openCart,
+            closeCart: closeCart,
         };
 
         // Initial badge update
@@ -502,16 +713,40 @@
     }
 
     /* ----------------------------------------------------------
+       BACK TO TOP BUTTON
+       ---------------------------------------------------------- */
+    function initBackToTop() {
+        var btn = document.getElementById('backToTop');
+        if (!btn) return;
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 600) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }, { passive: true });
+        btn.addEventListener('click', function () {
+            if (window.lenisInstance) {
+                window.lenisInstance.scrollTo(0);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    }
+
+    /* ----------------------------------------------------------
        INITIALIZE EVERYTHING ON DOM READY
        ---------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', function () {
+        initDarkMode();
         initHeaderScroll();
         initMobileMenu();
-        initScrollAnimations();
+        initScrollAnimations(); // Stub — GSAP handles animations now
         initActiveNavLink();
         initSmoothScroll();
         initContactForm();
         initBookingForm();
         initShop();
+        initBackToTop();
     });
 })();

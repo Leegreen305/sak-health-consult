@@ -12,8 +12,8 @@
         content="Discover our mission to deliver accessible, compassionate and professional healthcare services directly to individuals and communities in Tarkwa and beyond.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sakhealthconsult.com/about">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,9 +21,24 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="images/logo.png" alt="SAK Health Consult" width="80" height="80">
+        <div class="loader-bar">
+            <div class="loader-bar-fill" id="loaderFill"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-bar" aria-hidden="true"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
 
     <!-- ======================== HEADER ======================== -->
     <header class="site-header">
@@ -43,6 +58,9 @@
             </nav>
 
             <div class="header-actions">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-badge hidden">0</span>
@@ -73,25 +91,33 @@
     <main>
 
         <!-- ======================== PAGE HERO ======================== -->
-        <section class="page-hero">
+        <section class="page-hero noise-overlay">
             <div class="container">
-                <h1>About SAK Health Consult</h1>
+                <h1 data-text-reveal>About SAK Health Consult</h1>
                 <p>Bridging the gap between quality healthcare and the communities that need it most — right here in
                     Tarkwa and across Ghana's Western Region.</p>
             </div>
         </section>
+
+        <!-- Wave Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--color-bg)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80Z">
+                </path>
+            </svg>
+        </div>
 
         <!-- ======================== WHO WE ARE ======================== -->
         <section class="section fade-in">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Our Story</span>
-                    <h2>Who We Are</h2>
+                    <h2 class="gradient-text" data-text-reveal>Who We Are</h2>
                 </div>
 
                 <div class="grid-2" style="align-items: center;">
                     <div>
-                        <img src="images/about-team.jpg" alt="SAK Health Consult team"
+                        <img src="images/about-team.jpg" alt="SAK Health Consult team" loading="lazy" width="600" height="420"
                             style="width:100%; height:420px; object-fit:cover; border-radius:var(--border-radius-lg);">
                     </div>
                     <div>
@@ -117,7 +143,7 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Our Purpose</span>
-                    <h2>Our Mission</h2>
+                    <h2 class="gradient-text" data-text-reveal>Our Mission</h2>
                     <p style="font-size:1.25rem; font-weight:600; color:var(--color-text); max-width:700px;">
                         To deliver accessible, compassionate and professional healthcare services directly to
                         individuals and communities — removing barriers, restoring dignity and improving health outcomes
@@ -132,32 +158,32 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">What Drives Us</span>
-                    <h2>Our Values</h2>
+                    <h2 class="gradient-text" data-text-reveal>Our Values</h2>
                 </div>
 
                 <div class="grid-4">
-                    <div class="value-card fade-in">
+                    <div class="value-card glass-card fade-in">
                         <div class="icon-circle"><i class="fas fa-universal-access"></i></div>
                         <h3>Accessibility</h3>
                         <p>We believe healthcare is a right, not a privilege. We remove geographic, financial and social
                             barriers so that every person can access the care they deserve.</p>
                     </div>
 
-                    <div class="value-card fade-in">
+                    <div class="value-card glass-card fade-in">
                         <div class="icon-circle"><i class="fas fa-award"></i></div>
                         <h3>Quality</h3>
                         <p>We uphold the highest standards in every service we deliver — from clinical care and medical
                             supplies to education programmes and community screenings.</p>
                     </div>
 
-                    <div class="value-card fade-in">
+                    <div class="value-card glass-card fade-in">
                         <div class="icon-circle"><i class="fas fa-hand-holding-heart"></i></div>
                         <h3>Compassion</h3>
                         <p>Empathy is at the heart of everything we do. We treat every patient, family and community
                             with dignity, kindness and genuine care.</p>
                     </div>
 
-                    <div class="value-card fade-in">
+                    <div class="value-card glass-card fade-in">
                         <div class="icon-circle"><i class="fas fa-graduation-cap"></i></div>
                         <h3>Education</h3>
                         <p>We empower individuals and communities through knowledge — equipping them with the
@@ -172,52 +198,110 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">The People Behind the Care</span>
-                    <h2>Meet Our Team</h2>
+                    <h2 class="gradient-text" data-text-reveal>Meet Our Team</h2>
                     <p>Passionate healthcare professionals dedicated to transforming lives across the Western Region.
                     </p>
                 </div>
 
                 <div class="grid-3">
-                    <div class="team-card fade-in">
-                        <div class="team-image">
-                            <img src="images/team-1.jpg" alt="Dr. (MED) Silas Anan-Kakabaah">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Dr. (MED) Silas Anan-Kakabaah</h3>
-                            <span class="team-role">CEO &amp; Founder</span>
-                            <p style="margin-top:12px; font-size:0.9rem; color:var(--color-text-light);">Visionary
-                                leader with a deep passion for healthcare equity. Dr. Silas Anan-Kakabaah founded SAK
-                                Health Consult to
-                                bring quality medical services directly to underserved communities in the Western
-                                Region.</p>
-                        </div>
-                    </div>
-
-                    <div class="team-card fade-in">
-                        <div class="team-image">
-                            <img src="images/team-2.jpg" alt="Dr. (Pharm) Felix Otchere">
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Dr. (Pharm) Felix Otchere</h3>
-                            <span class="team-role">Pharmacy Services</span>
-                            <p style="margin-top:12px; font-size:0.9rem; color:var(--color-text-light);">Dr. Felix
-                                Otchere brings extensive pharmaceutical expertise to SAK Health Consult, ensuring the
-                                quality and safety of all medical supplies and pharmaceutical products we provide to
-                                our clients.</p>
+                    <div class="team-card-3d fade-in">
+                        <div class="team-card-inner card-3d glass-card gradient-border">
+                            <div class="team-image">
+                                <img src="images/team-1.jpg" alt="Dr. (MED) Silas Anan-Kakabaah" loading="lazy" width="400" height="400">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Dr. (MED) Silas Anan-Kakabaah</h3>
+                                <span class="team-role">CEO &amp; Founder</span>
+                            </div>
+                            <div class="team-hover-overlay">
+                                <h4>Dr. (MED) Silas Anan-Kakabaah</h4>
+                                <p>Visionary leader with a deep passion for healthcare equity. Founded SAK Health
+                                    Consult to bring quality medical services directly to underserved communities in the
+                                    Western Region.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="team-card fade-in">
-                        <div class="team-image">
-                            <img src="images/team-3.jpg" alt="Clifford Takyi">
+                    <div class="team-card-3d fade-in">
+                        <div class="team-card-inner card-3d glass-card gradient-border">
+                            <div class="team-image">
+                                <img src="images/team-2.jpg" alt="Dr. (Pharm) Felix Otchere" loading="lazy" width="400" height="400">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Dr. (Pharm) Felix Otchere</h3>
+                                <span class="team-role">Pharmacy Services</span>
+                            </div>
+                            <div class="team-hover-overlay">
+                                <h4>Dr. (Pharm) Felix Otchere</h4>
+                                <p>Brings extensive pharmaceutical expertise, ensuring the quality and safety of all
+                                    medical supplies and pharmaceutical products provided to clients.</p>
+                            </div>
                         </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Clifford Takyi</h3>
-                            <span class="team-role">Procurement &amp; Logistics</span>
-                            <p style="margin-top:12px; font-size:0.9rem; color:var(--color-text-light);">Clifford
-                                Takyi manages the procurement and logistics operations at SAK Health Consult, ensuring
-                                timely delivery of medical supplies and equipment to healthcare facilities and homes
-                                across the region.</p>
+                    </div>
+
+                    <div class="team-card-3d fade-in">
+                        <div class="team-card-inner card-3d glass-card gradient-border">
+                            <div class="team-image">
+                                <img src="images/team-3.jpg" alt="Clifford Takyi" loading="lazy" width="400" height="400">
+                            </div>
+                            <div class="team-info">
+                                <h3 class="team-name">Clifford Takyi</h3>
+                                <span class="team-role">Procurement &amp; Logistics</span>
+                            </div>
+                            <div class="team-hover-overlay">
+                                <h4>Clifford Takyi</h4>
+                                <p>Manages procurement and logistics operations, ensuring timely delivery of medical
+                                    supplies and equipment to healthcare facilities and homes across the region.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== TIMELINE ======================== -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Our Journey</span>
+                    <h2 class="gradient-text" data-text-reveal>Milestones</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2020</span>
+                            <h4>Founded</h4>
+                            <p>SAK Health Consult was established in Tarkwa to bridge critical gaps in healthcare
+                                accessibility across Ghana's Western Region.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2022</span>
+                            <h4>Expanded Services</h4>
+                            <p>Launched health education programmes, community screenings and telemedicine consultations
+                                to reach more communities.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2024</span>
+                            <h4>Liderson Partnership</h4>
+                            <p>Partnered with Liderson Medical to distribute professional-grade medical supplies across
+                                the region and beyond.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2025</span>
+                            <h4>Digital Launch</h4>
+                            <p>Launched our digital platform for online bookings, telemedicine and medical supply
+                                procurement — healthcare at your fingertips.</p>
                         </div>
                     </div>
                 </div>
@@ -242,6 +326,14 @@
     <!-- ======================== FOOTER ======================== -->
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get health tips and product updates delivered to your inbox.</p>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                    <button type="submit" class="btn btn-accent">Subscribe</button>
+                </form>
+            </div>
             <div class="footer-grid">
                 <!-- Column 1: About -->
                 <div class="footer-column footer-about">
@@ -309,7 +401,18 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- Premium Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 
 </html>

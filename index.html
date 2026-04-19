@@ -12,8 +12,8 @@
         content="Quality medical care, education and supplies delivered to you wherever you are in Tarkwa and beyond.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sakhealthconsult.com">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,9 +21,24 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="images/logo.png" alt="SAK Health Consult" width="80" height="80">
+        <div class="loader-bar">
+            <div class="loader-bar-fill" id="loaderFill"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-bar" aria-hidden="true"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
 
     <!-- ======================== HEADER ======================== -->
     <header class="site-header">
@@ -43,6 +58,9 @@
             </nav>
 
             <div class="header-actions">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-badge hidden">0</span>
@@ -73,13 +91,18 @@
     <main>
 
         <!-- ======================== HERO ======================== -->
-        <section class="hero">
+        <section class="hero noise-overlay">
             <img src="images/hero-bg.jpg" alt="" class="hero-bg-img" aria-hidden="true">
             <div class="hero-overlay"></div>
             <div class="hero-pattern"></div>
+            <div class="hero-float-shapes" aria-hidden="true">
+                <div class="float-shape float-shape-1" data-parallax="-0.3"></div>
+                <div class="float-shape float-shape-2" data-parallax="0.2"></div>
+                <div class="float-shape float-shape-3" data-parallax="-0.15"></div>
+            </div>
             <div class="container">
                 <div class="hero-content">
-                    <h1>Healthcare<br>Beyond Walls</h1>
+                    <h1 data-text-reveal>Healthcare Beyond Walls</h1>
                     <p class="hero-subtitle">Quality medical care, education and supplies delivered to you wherever you
                         are in Tarkwa and beyond.</p>
                     <div class="hero-buttons">
@@ -90,81 +113,63 @@
             </div>
         </section>
 
-        <!-- ======================== SERVICES OVERVIEW ======================== -->
-        <section class="section fade-in">
+        <!-- Wave Divider -->
+        <div class="section-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <path fill="var(--bg-primary, #ffffff)" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" />
+            </svg>
+        </div>
+
+        <!-- ======================== SERVICES OVERVIEW — BENTO GRID ======================== -->
+        <section class="section services-section fade-in">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Our Services</span>
-                    <h2>What We Offer</h2>
+                    <h2 class="section-title gradient-text" data-text-reveal>What We Offer</h2>
                     <p>From your doorstep to your community — we bring world-class healthcare services directly to you,
                         wherever you are.</p>
                 </div>
 
-                <div class="grid-4">
-                    <div class="card service-card fade-in">
-                        <div class="card-image" style="overflow:hidden;">
-                            <img src="images/service-home-care.jpg" alt="Home Healthcare"
-                                style="width:100%;height:220px;object-fit:cover;">
-                        </div>
-                        <div class="card-content">
-                            <div class="icon-circle"><i class="fas fa-house-medical"></i></div>
-                            <h3>Doctor Door (Dr. D'Or)</h3>
-                            <p>Professional medical care delivered directly to your doorstep. Our Doctor Door (Dr. D'Or)
-                                service brings qualified healthcare professionals to your home for consultations,
-                                nursing care and health monitoring.</p>
-                        </div>
+                <div class="bento-grid">
+                    <div class="bento-item-lg service-card card-3d gradient-border glass-card">
+                        <div class="service-icon"><i class="fas fa-house-medical"></i></div>
+                        <h3>Doctor Door (Dr. D'Or)</h3>
+                        <p>Professional medical care delivered directly to your doorstep. Our Doctor Door (Dr. D'Or)
+                            service brings qualified healthcare professionals to your home for consultations,
+                            nursing care and health monitoring.</p>
+                        <a href="services.html" class="btn btn-sm btn-primary">Learn More</a>
                     </div>
 
-                    <div class="card service-card fade-in">
-                        <div class="card-image" style="overflow:hidden;">
-                            <img src="images/service-logistics.jpg" alt="Medical Logistics"
-                                style="width:100%;height:220px;object-fit:cover;">
-                        </div>
-                        <div class="card-content">
-                            <div class="icon-circle"><i class="fas fa-truck-medical"></i></div>
-                            <h3>Medical Logistics</h3>
-                            <p>Reliable and timely delivery of medical supplies, equipment and pharmaceuticals to
-                                healthcare facilities and homes across the region.</p>
-                        </div>
+                    <div class="bento-item-wide service-card card-3d gradient-border glass-card">
+                        <div class="service-icon"><i class="fas fa-truck-medical"></i></div>
+                        <h3>Medical Logistics</h3>
+                        <p>Reliable and timely delivery of medical supplies, equipment and pharmaceuticals to
+                            healthcare facilities and homes across the region.</p>
+                        <a href="services.html" class="btn btn-sm btn-primary">Learn More</a>
                     </div>
 
-                    <div class="card service-card fade-in">
-                        <div class="card-image" style="overflow:hidden;">
-                            <img src="images/service-education.jpg" alt="Health Education"
-                                style="width:100%;height:220px;object-fit:cover;">
-                        </div>
-                        <div class="card-content">
-                            <div class="icon-circle"><i class="fas fa-chalkboard-user"></i></div>
-                            <h3>Health Education</h3>
-                            <p>Empowering communities through tailored health education workshops, disease prevention
-                                awareness and wellness coaching programmes.</p>
-                        </div>
+                    <div class="service-card card-3d gradient-border glass-card">
+                        <div class="service-icon"><i class="fas fa-chalkboard-user"></i></div>
+                        <h3>Health Education</h3>
+                        <p>Empowering communities through tailored health education workshops, disease prevention
+                            awareness and wellness coaching programmes.</p>
+                        <a href="services.html" class="btn btn-sm btn-primary">Learn More</a>
                     </div>
 
-                    <div class="card service-card fade-in">
-                        <div class="card-image" style="overflow:hidden;">
-                            <img src="images/service-screening.jpg" alt="Health Screenings"
-                                style="width:100%;height:220px;object-fit:cover;">
-                        </div>
-                        <div class="card-content">
-                            <div class="icon-circle"><i class="fas fa-heartbeat"></i></div>
-                            <h3>Health Screenings</h3>
-                            <p>Comprehensive health screenings including blood pressure, blood sugar, BMI and
-                                cholesterol checks — brought right to your community.</p>
-                        </div>
+                    <div class="service-card card-3d gradient-border glass-card">
+                        <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Health Screenings</h3>
+                        <p>Comprehensive health screenings including blood pressure, blood sugar, BMI and
+                            cholesterol checks — brought right to your community.</p>
+                        <a href="services.html" class="btn btn-sm btn-primary">Learn More</a>
                     </div>
 
-                    <div class="card service-card fade-in">
-                        <div class="card-image" style="overflow:hidden;">
-                            <img src="images/service-education.jpg" alt="Telemedicine"
-                                style="width:100%;height:220px;object-fit:cover;">
-                        </div>
-                        <div class="card-content">
-                            <div class="icon-circle"><i class="fas fa-laptop-medical"></i></div>
-                            <h3>Telemedicine</h3>
-                            <p>Connect with our healthcare professionals remotely through secure video consultations.
-                                Get medical advice, prescriptions and follow-up care from the comfort of your home.</p>
-                        </div>
+                    <div class="service-card card-3d gradient-border glass-card">
+                        <div class="service-icon"><i class="fas fa-laptop-medical"></i></div>
+                        <h3>Telemedicine</h3>
+                        <p>Connect with our healthcare professionals remotely through secure video consultations.
+                            Get medical advice, prescriptions and follow-up care from the comfort of your home.</p>
+                        <a href="services.html" class="btn btn-sm btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -175,28 +180,28 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Why SAK Health</span>
-                    <h2>Why Choose Us</h2>
+                    <h2 class="section-title gradient-text" data-text-reveal>Why Choose Us</h2>
                     <p>We go beyond the ordinary to deliver healthcare that is accessible, dependable and always
                         centered around you.</p>
                 </div>
 
                 <div class="grid-3">
-                    <div class="why-card fade-in">
-                        <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                    <div class="why-card card-3d glass-card fade-in">
+                        <div class="why-icon-circle"><i class="fas fa-clock"></i></div>
                         <h3>24/7 Availability</h3>
                         <p>Healthcare doesn't keep office hours — and neither do we. Our team is available around the
                             clock, every single day, ready when you need us most.</p>
                     </div>
 
-                    <div class="why-card fade-in">
-                        <div class="icon-circle"><i class="fas fa-hand-holding-medical"></i></div>
+                    <div class="why-card card-3d glass-card fade-in">
+                        <div class="why-icon-circle"><i class="fas fa-hand-holding-medical"></i></div>
                         <h3>Care at Your Doorstep</h3>
                         <p>No more long queues or exhausting commutes. We bring qualified medical professionals,
                             supplies and screenings directly to your home or office.</p>
                     </div>
 
-                    <div class="why-card fade-in">
-                        <div class="icon-circle"><i class="fas fa-building-shield"></i></div>
+                    <div class="why-card card-3d glass-card fade-in">
+                        <div class="why-icon-circle"><i class="fas fa-building-shield"></i></div>
                         <h3>Trusted by Organizations</h3>
                         <p>Companies, schools and community groups across the Western Region trust SAK Health Consult
                             for reliable corporate health programmes and medical logistics.</p>
@@ -205,82 +210,166 @@
             </div>
         </section>
 
-        <!-- ======================== TESTIMONIALS ======================== -->
-        <section class="section fade-in">
+        <!-- ======================== TRUST BADGES ======================== -->
+        <section class="trust-section fade-in">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Testimonials</span>
-                    <h2>What Our Clients Say</h2>
-                    <p>Real stories from the people we serve every day in Tarkwa and the Western Region.</p>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card testimonial-card fade-in">
-                        <div class="testimonial-stars" style="margin-bottom:16px;color:var(--color-accent);">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="quote-text">"SAK Health Consult made it so easy for our family to access quality
-                            healthcare without travelling. The nurse came to our home, did a full check-up and was
-                            incredibly professional. Highly recommend!"</p>
-                        <div class="author">
-                            <img src="images/testimonial-1.jpg" alt="Ama Mensah"
-                                style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
-                            <div>
-                                <span class="author-name">Ama Mensah</span>
-                                <span class="author-role">Tarkwa Resident</span>
-                            </div>
-                        </div>
+                <p class="trust-label">Trusted &amp; Certified</p>
+                <div class="trust-badges">
+                    <div class="trust-badge glass-card">
+                        <i class="fas fa-certificate"></i>
+                        <span>CE Certified</span>
                     </div>
-
-                    <div class="card testimonial-card fade-in">
-                        <div class="testimonial-stars" style="margin-bottom:16px;color:var(--color-accent);">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="quote-text">"As a mine supervisor, I needed a reliable partner for our on-site health
-                            screenings. SAK Health delivered — on time, every time. Our workers' health outcomes have
-                            never been better."</p>
-                        <div class="author">
-                            <img src="images/testimonial-2.jpg" alt="Kwame Asante"
-                                style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
-                            <div>
-                                <span class="author-name">Kwame Asante</span>
-                                <span class="author-role">Mining Safety Officer</span>
-                            </div>
-                        </div>
+                    <div class="trust-badge glass-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <span>FDA Approved</span>
                     </div>
-
-                    <div class="card testimonial-card fade-in">
-                        <div class="testimonial-stars" style="margin-bottom:16px;color:var(--color-accent);">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="quote-text">"I ordered medical supplies for my clinic through SAK Health and was
-                            impressed by the speed and quality. Their logistics team is top-notch and the customer
-                            service is exceptional."</p>
-                        <div class="author">
-                            <img src="images/testimonial-3.jpg" alt="Efua Boateng"
-                                style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
-                            <div>
-                                <span class="author-name">Efua Boateng</span>
-                                <span class="author-role">Clinic Administrator, Prestea</span>
-                            </div>
-                        </div>
+                    <div class="trust-badge glass-card">
+                        <i class="fas fa-award"></i>
+                        <span>ISO 13485</span>
+                    </div>
+                    <div class="trust-badge glass-card">
+                        <i class="fas fa-handshake"></i>
+                        <span>Liderson Medical Partner</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======================== CTA BANNER ======================== -->
-        <section class="section fade-in">
+        <!-- ======================== STATS / COUNTERS ======================== -->
+        <section class="stats-section mesh-gradient-dark fade-in">
             <div class="container">
-                <div class="cta-banner fade-in"
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="500" data-suffix="+">0</span>
+                        <span class="stat-label">Clients Served</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="10" data-suffix="+">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="36" data-suffix="+">0</span>
+                        <span class="stat-label">Medical Products</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="24" data-suffix="/7">0</span>
+                        <span class="stat-label">Customer Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== TESTIMONIALS — SWIPER CAROUSEL ======================== -->
+        <section class="section testimonials-section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Testimonials</span>
+                    <h2 class="section-title gradient-text" data-text-reveal>What Our Clients Say</h2>
+                    <p>Real stories from the people we serve every day in Tarkwa and the Western Region.</p>
+                </div>
+
+                <div class="swiper testimonial-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial-card glass-card">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"SAK Health Consult made it so easy for our family to access
+                                    quality
+                                    healthcare without travelling. The nurse came to our home, did a full check-up and
+                                    was
+                                    incredibly professional. Highly recommend!"</p>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonial-1.jpg" alt="Ama Mensah" width="48" height="48" loading="lazy">
+                                    <div>
+                                        <strong>Ama Mensah</strong>
+                                        <span>Tarkwa, Ghana</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card glass-card">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"As a mine supervisor, I needed a reliable partner for our
+                                    on-site health
+                                    screenings. SAK Health delivered — on time, every time. Our workers' health outcomes
+                                    have
+                                    never been better."</p>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonial-2.jpg" alt="Kwame Asante" width="48" height="48" loading="lazy">
+                                    <div>
+                                        <strong>Kwame Asante</strong>
+                                        <span>Mining Safety Officer, Tarkwa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card glass-card">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"I ordered medical supplies for my clinic through SAK Health
+                                    and was
+                                    impressed by the speed and quality. Their logistics team is top-notch and the
+                                    customer
+                                    service is exceptional."</p>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonial-3.jpg" alt="Efua Boateng" width="48" height="48" loading="lazy">
+                                    <div>
+                                        <strong>Efua Boateng</strong>
+                                        <span>Clinic Administrator, Prestea</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card glass-card">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"The telemedicine service was a lifesaver during the rainy
+                                    season when
+                                    roads were impassable. I consulted a doctor from my phone and received my
+                                    prescription
+                                    the next day. Incredible service!"</p>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonial-1.jpg" alt="Yaa Asantewaa" width="48" height="48" loading="lazy">
+                                    <div>
+                                        <strong>Yaa Asantewaa</strong>
+                                        <span>Bogoso, Ghana</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card glass-card">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <p class="testimonial-text">"Our school partnered with SAK Health for a health education
+                                    programme
+                                    and the impact was remarkable. Students and staff are now more health-conscious than
+                                    ever.
+                                    Thank you, SAK Health!"</p>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonial-2.jpg" alt="Kofi Owusu" width="48" height="48" loading="lazy">
+                                    <div>
+                                        <strong>Kofi Owusu</strong>
+                                        <span>School Administrator, Aboso</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== CTA BANNER ======================== -->
+        <section class="section cta-section noise-overlay fade-in">
+            <div class="container">
+                <div class="cta-banner fade-in" data-parallax="0.1"
                     style="background-image: url('images/cta-bg.jpg'); background-size: cover; background-position: center;">
-                    <h2>Ready to Experience Healthcare Beyond Walls?</h2>
+                    <h2 data-text-reveal>Ready to Experience Healthcare Beyond Walls?</h2>
                     <p>Whether you need a home consultation, medical supplies or a corporate health programme — we're
                         here 24/7, just a call or click away.</p>
-                    <a href="book.html" class="btn btn-accent btn-lg">Book an Appointment</a>
+                    <a href="book.html" class="btn btn-accent btn-lg gradient-border">Book an Appointment</a>
                 </div>
             </div>
         </section>
@@ -305,6 +394,14 @@
     <!-- ======================== FOOTER ======================== -->
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get health tips and product updates delivered to your inbox.</p>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                    <button type="submit" class="btn btn-accent">Subscribe</button>
+                </form>
+            </div>
             <div class="footer-grid">
                 <!-- Column 1: About -->
                 <div class="footer-column footer-about">
@@ -372,7 +469,18 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- Premium Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 
 </html>

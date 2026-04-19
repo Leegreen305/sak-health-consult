@@ -12,8 +12,8 @@
         content="Schedule your healthcare appointment online. Home visits, screenings and consultations available 24/7.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sakhealthconsult.com/book">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,9 +21,24 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <img src="images/logo.png" alt="SAK Health Consult" width="80" height="80">
+        <div class="loader-bar">
+            <div class="loader-bar-fill" id="loaderFill"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-bar" aria-hidden="true"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
 
     <!-- ======================== HEADER ======================== -->
     <header class="site-header">
@@ -43,6 +58,9 @@
             </nav>
 
             <div class="header-actions">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="shop.html" class="cart-icon" aria-label="Shopping cart">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-badge hidden">0</span>
@@ -73,16 +91,16 @@
     <main>
 
         <!-- ======================== PAGE HERO ======================== -->
-        <section class="page-hero">
+        <section class="page-hero noise-overlay">
             <div class="container">
-                <h1>Book an Appointment</h1>
+                <h1 data-text-reveal>Book an Appointment</h1>
                 <p>Schedule a home healthcare visit, screening or consultation in just a few steps. Our team is
                     available 24/7 to serve you.</p>
             </div>
         </section>
 
         <!-- ======================== BOOKING FORM ======================== -->
-        <section class="section fade-in">
+        <section class="section fade-in mesh-gradient">
             <div class="container" style="max-width:760px;">
 
                 <!-- Progress Indicator -->
@@ -105,7 +123,8 @@
                     </div>
                 </div>
 
-                <form id="booking-form" novalidate>
+                <form id="booking-form" class="glass-card"
+                    style="padding:40px 36px; border-radius:var(--border-radius-lg);">
 
                     <!-- Step 1: Service Selection -->
                     <div class="booking-step active" data-step="1">
@@ -180,15 +199,14 @@
                         <h3 style="margin-bottom:8px;">Choose Date &amp; Time</h3>
                         <p style="margin-bottom:28px;">Select your preferred appointment date and time slot.</p>
 
-                        <div class="form-group">
-                            <label for="booking-date" class="form-label">Preferred Date</label>
-                            <input type="date" id="booking-date" class="form-input" required>
+                        <div class="float-label-group">
+                            <input type="date" id="booking-date" placeholder=" " required>
+                            <label for="booking-date">Preferred Date</label>
                             <span class="form-error"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="booking-time" class="form-label">Preferred Time</label>
-                            <select id="booking-time" class="form-select" required>
+                        <div class="float-label-group">
+                            <select id="booking-time" required>
                                 <option value="">Select a time slot</option>
                                 <option value="08:00 - 10:00">8:00 AM – 10:00 AM</option>
                                 <option value="10:00 - 12:00">10:00 AM – 12:00 PM</option>
@@ -197,6 +215,7 @@
                                 <option value="16:00 - 18:00">4:00 PM – 6:00 PM</option>
                                 <option value="18:00 - 20:00">6:00 PM – 8:00 PM (Evening)</option>
                             </select>
+                            <label for="booking-time">Preferred Time</label>
                             <span class="form-error"></span>
                         </div>
 
@@ -214,31 +233,27 @@
                         <p style="margin-bottom:28px;">Please provide your contact information so we can confirm your
                             appointment.</p>
 
-                        <div class="form-group">
-                            <label for="booking-name" class="form-label">Full Name</label>
-                            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Kwame Asante"
-                                required>
+                        <div class="float-label-group">
+                            <input type="text" id="booking-name" placeholder=" " required>
+                            <label for="booking-name">Full Name</label>
                             <span class="form-error"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="booking-phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="booking-phone" class="form-input" placeholder="e.g. +233 544 528 317"
-                                required>
+                        <div class="float-label-group">
+                            <input type="tel" id="booking-phone" placeholder=" " required>
+                            <label for="booking-phone">Phone Number</label>
                             <span class="form-error"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="booking-email" class="form-label">Email Address</label>
-                            <input type="email" id="booking-email" class="form-input" placeholder="e.g. you@example.com"
-                                required>
+                        <div class="float-label-group">
+                            <input type="email" id="booking-email" placeholder=" " required>
+                            <label for="booking-email">Email Address</label>
                             <span class="form-error"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="booking-notes" class="form-label">Additional Notes (Optional)</label>
-                            <textarea id="booking-notes" class="form-textarea" rows="3"
-                                placeholder="Any specific requirements or information we should know..."></textarea>
+                        <div class="float-label-group">
+                            <textarea id="booking-notes" rows="3" placeholder=" "></textarea>
+                            <label for="booking-notes">Additional Notes (Optional)</label>
                         </div>
 
                         <div class="booking-nav">
@@ -254,8 +269,8 @@
                         <h3 style="margin-bottom:8px;">Review &amp; Confirm</h3>
                         <p style="margin-bottom:28px;">Please review your booking details before confirming.</p>
 
-                        <div class="booking-summary"
-                            style="background:var(--color-bg-alt);border-radius:var(--border-radius-md);padding:32px;margin-bottom:24px;">
+                        <div class="booking-summary glass-card"
+                            style="border-radius:var(--border-radius-md);padding:32px;margin-bottom:24px;">
                             <!-- Filled dynamically by JS -->
                         </div>
 
@@ -281,7 +296,7 @@
                 </div>
 
                 <div class="grid-3">
-                    <div class="card fade-in" style="text-align:center;padding:36px;">
+                    <div class="card card-3d glass-card fade-in" style="text-align:center;padding:36px;">
                         <div class="icon-circle"
                             style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
                             <i class="fas fa-phone"></i>
@@ -291,7 +306,7 @@
                         <p><a href="tel:+233598981022">+233 598 981 022</a></p>
                     </div>
 
-                    <div class="card fade-in" style="text-align:center;padding:36px;">
+                    <div class="card card-3d glass-card fade-in" style="text-align:center;padding:36px;">
                         <div class="icon-circle"
                             style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
                             <i class="fas fa-envelope"></i>
@@ -301,7 +316,7 @@
                                 href="mailto:info@sakhealthconsult.com">info@sakhealthconsult.com</a></p>
                     </div>
 
-                    <div class="card fade-in" style="text-align:center;padding:36px;">
+                    <div class="card card-3d glass-card fade-in" style="text-align:center;padding:36px;">
                         <div class="icon-circle"
                             style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
                             <i class="fab fa-whatsapp"></i>
@@ -319,6 +334,14 @@
     <!-- ======================== FOOTER ======================== -->
     <footer class="site-footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Get health tips and product updates delivered to your inbox.</p>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
+                    <button type="submit" class="btn btn-accent">Subscribe</button>
+                </form>
+            </div>
             <div class="footer-grid">
                 <div class="footer-column footer-about">
                     <h4>SAK Health Consult</h4>
@@ -382,7 +405,18 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- Premium Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Flip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 
 </html>
