@@ -153,7 +153,9 @@ button {
     outline-offset: 3px;
     border-radius: 4px;
 }
-a:focus-visible, button:focus-visible {
+
+a:focus-visible,
+button:focus-visible {
     outline: 3px solid var(--color-accent);
     outline-offset: 3px;
 }
@@ -1911,13 +1913,34 @@ small,
 }
 
 /* ============================================================
-   SCROLL ANIMATIONS — Premium easing
+   SCROLL ANIMATIONS — Progressive Enhancement
+   Content is ALWAYS visible by default. GSAP adds the
+   .gsap-ready class to <html> before animating, so elements
+   only hide when JS is confirmed working.
    ============================================================ */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
+.fade-in,
+.fade-in-left,
+.fade-in-right {
+    opacity: 1;
+    transform: none;
     transition: opacity 0.7s var(--ease-out-expo),
         transform 0.7s var(--ease-out-expo);
+}
+
+/* Only hide elements when GSAP is confirmed loaded and ready */
+.gsap-ready .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.gsap-ready .fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.gsap-ready .fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
 }
 
 .fade-in.visible {
@@ -1949,23 +1972,9 @@ small,
     transition-delay: 0.5s;
 }
 
-.fade-in-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: opacity 0.7s var(--ease-out-expo),
-        transform 0.7s var(--ease-out-expo);
-}
-
 .fade-in-left.visible {
     opacity: 1;
     transform: translateX(0);
-}
-
-.fade-in-right {
-    opacity: 0;
-    transform: translateX(40px);
-    transition: opacity 0.7s var(--ease-out-expo),
-        transform 0.7s var(--ease-out-expo);
 }
 
 .fade-in-right.visible {
@@ -2439,6 +2448,16 @@ small,
     justify-content: center;
     z-index: 100000;
     transition: opacity 0.5s ease;
+    /* CSS-only fallback: auto-hide loader after 5s even if JS fails */
+    animation: loaderFallbackHide 0s 5s forwards;
+}
+
+@keyframes loaderFallbackHide {
+    to {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
 }
 
 .page-loader.loaded {
@@ -3054,7 +3073,7 @@ small,
    PREMIUM ANIMATION FOUNDATIONS
    ============================================ */
 
-/* Word reveal wrappers */
+/* Word reveal wrappers — visible by default for progressive enhancement */
 .word-wrap {
     display: inline-block;
     overflow: hidden;
@@ -3063,6 +3082,8 @@ small,
 
 .word-wrap .word {
     display: inline-block;
+    opacity: 1;
+    transform: none;
 }
 
 /* Scroll progress bar */
@@ -3766,76 +3787,103 @@ small,
 
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-bg-img { transform: none !important; }
-  .float-shape { display: none; }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero-bg-img {
+        transform: none !important;
+    }
+
+    .float-shape {
+        display: none;
+    }
 }
 
 /* --- Footer Newsletter --- */
 .footer-newsletter {
-  text-align: center;
-  padding: 48px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 48px;
+    text-align: center;
+    padding: 48px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 48px;
 }
+
 .footer-newsletter h3 {
-  color: #fff;
-  margin-bottom: 8px;
+    color: #fff;
+    margin-bottom: 8px;
 }
+
 .footer-newsletter p {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
 }
+
 .newsletter-form {
-  display: flex;
-  gap: 12px;
-  max-width: 440px;
-  margin: 0 auto;
+    display: flex;
+    gap: 12px;
+    max-width: 440px;
+    margin: 0 auto;
 }
+
 .newsletter-form input {
-  flex: 1;
-  padding: 12px 16px;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font-size: 0.95rem;
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 0.95rem;
 }
-.newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .newsletter-form input:focus {
-  outline: none;
-  border-color: var(--color-accent);
+    outline: none;
+    border-color: var(--color-accent);
 }
-.newsletter-form .btn { border-radius: 100px; padding: 12px 24px; white-space: nowrap; }
+
+.newsletter-form .btn {
+    border-radius: 100px;
+    padding: 12px 24px;
+    white-space: nowrap;
+}
 
 /* --- Back to Top Button --- */
 .back-to-top {
-  position: fixed;
-  bottom: 90px;
-  right: 24px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(11, 110, 114, 0.3);
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(11, 110, 114, 0.3);
 }
-.back-to-top.visible { opacity: 1; visibility: visible; }
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
 .back-to-top:hover {
-  background: var(--color-accent);
-  transform: translateY(-3px);
+    background: var(--color-accent);
+    transform: translateY(-3px);
 }
