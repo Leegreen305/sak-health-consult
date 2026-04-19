@@ -2334,7 +2334,9 @@ small,
 
 /* --- Gradient Text Effect --- */
 .gradient-text {
-    background: var(--gradient-premium);
+    color: var(--color-primary, #0B6E72);
+    /* Fallback color always visible */
+    background: linear-gradient(135deg, #0B6E72 0%, #0d8a8f 40%, #C9A84C 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -2479,6 +2481,15 @@ small,
 [data-theme="dark"] h5,
 [data-theme="dark"] h6 {
     color: var(--color-text);
+}
+
+/* Gradient text must keep its styling in dark mode */
+[data-theme="dark"] .gradient-text {
+    color: var(--color-primary, #0B6E72);
+    background: linear-gradient(135deg, #0B6E72 0%, #0d8a8f 40%, #C9A84C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 [data-theme="dark"] p {
@@ -3207,6 +3218,15 @@ small,
     display: inline-block;
     opacity: 1;
     transform: none;
+}
+
+/* Ensure gradient-text styling passes through word-reveal spans */
+.gradient-text .word-wrap,
+.gradient-text .word-wrap .word {
+    background: inherit;
+    -webkit-background-clip: inherit;
+    -webkit-text-fill-color: inherit;
+    background-clip: inherit;
 }
 
 /* Scroll progress bar */
