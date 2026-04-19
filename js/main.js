@@ -666,7 +666,7 @@
                     msg += '• ' + item.name + ' — Qty: ' + item.qty + '\n';
                 });
                 msg += '\nPlease confirm availability and pricing. Thank you!';
-                var whatsappUrl = 'https://wa.me/233544528317?text=' + encodeURIComponent(msg);
+                var whatsappUrl = 'https://wa.me/233598981022?text=' + encodeURIComponent(msg);
                 window.open(whatsappUrl, '_blank');
             });
         }
