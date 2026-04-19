@@ -90,246 +90,182 @@
 
     <main>
 
-        <!-- ======================== PAGE HERO ======================== -->
-        <section class="page-hero noise-overlay">
+        <!-- ======================== BOOKING HERO ======================== -->
+        <section class="page-hero booking-hero noise-overlay">
             <div class="container">
-                <h1 data-text-reveal>Book an Appointment</h1>
-                <p>Schedule a home healthcare visit, screening or consultation in just a few steps. Our team is
-                    available 24/7 to serve you.</p>
+                <h1 data-text-reveal>Book a doctor to come to your home</h1>
+                <p class="hero-subtext">Home visits, preventive screening, and medical support in Tarkwa and the
+                    surrounding areas.</p>
+                <p class="hero-support-line"><i class="fas fa-clock"></i> We respond within 30 minutes</p>
+                <div class="booking-hero-ctas">
+                    <a href="tel:+233544528317" class="btn btn-accent"><i class="fas fa-phone"></i> Call Now</a>
+                    <a href="https://wa.me/233544528317" target="_blank" rel="noopener" class="btn btn-whatsapp"><i
+                            class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#booking-form" class="btn btn-secondary scroll-to-form"><i class="fas fa-arrow-down"></i>
+                        Scroll to Form</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== TRUST BADGES ======================== -->
+        <section class="trust-badges-section fade-in">
+            <div class="container">
+                <div class="trust-badges-row">
+                    <div class="trust-badge glass-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Same-day visits available</span>
+                    </div>
+                    <div class="trust-badge glass-card">
+                        <i class="fas fa-bolt"></i>
+                        <span>Response within 30 minutes</span>
+                    </div>
+                    <div class="trust-badge glass-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Available in Tarkwa and nearby areas</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- ======================== BOOKING FORM ======================== -->
-        <section class="section fade-in mesh-gradient">
-            <div class="container" style="max-width:760px;">
+        <section id="booking-form" class="section fade-in mesh-gradient">
+            <div class="container" style="max-width:640px;">
 
-                <!-- Progress Indicator -->
-                <div class="booking-progress">
-                    <div class="progress-step active">
-                        <div class="step-number">1</div>
-                        <span class="step-label">Service</span>
-                    </div>
-                    <div class="progress-step">
-                        <div class="step-number">2</div>
-                        <span class="step-label">Date &amp; Time</span>
-                    </div>
-                    <div class="progress-step">
-                        <div class="step-number">3</div>
-                        <span class="step-label">Your Details</span>
-                    </div>
-                    <div class="progress-step">
-                        <div class="step-number">4</div>
-                        <span class="step-label">Confirm</span>
-                    </div>
+                <div class="section-header" style="margin-bottom:36px;">
+                    <h2>Request a Home Visit</h2>
+                    <p>Fill in your details below and we’ll get back to you within 30 minutes.</p>
                 </div>
 
-                <form id="booking-form" class="glass-card"
+                <form id="bookingForm" class="glass-card gradient-border"
                     style="padding:40px 36px; border-radius:var(--border-radius-lg);">
 
-                    <!-- Step 1: Service Selection -->
-                    <div class="booking-step active" data-step="1">
-                        <h3 style="margin-bottom:8px;">Select a Service</h3>
-                        <p style="margin-bottom:28px;">Choose the type of healthcare service you need.</p>
-
-                        <fieldset class="service-fieldset">
-                            <legend class="sr-only"
-                                style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">
-                                Select a service type</legend>
-
-                            <label class="service-option">
-                                <input type="radio" name="service" value="home-healthcare">
-                                <span class="option-radio"></span>
-                                <span class="option-icon"><i class="fas fa-house-medical"></i></span>
-                                <span class="option-text">
-                                    <h4>Doctor Door (Dr. D'Or) — Home Visit</h4>
-                                    <p>Professional medical consultation and nursing care at your home.</p>
-                                </span>
-                            </label>
-
-                            <label class="service-option">
-                                <input type="radio" name="service" value="health-screening">
-                                <span class="option-radio"></span>
-                                <span class="option-icon"><i class="fas fa-heartbeat"></i></span>
-                                <span class="option-text">
-                                    <h4>Health Screening</h4>
-                                    <p>Blood pressure, blood sugar, BMI and cholesterol checks.</p>
-                                </span>
-                            </label>
-
-                            <label class="service-option">
-                                <input type="radio" name="service" value="health-education">
-                                <span class="option-radio"></span>
-                                <span class="option-icon"><i class="fas fa-chalkboard-user"></i></span>
-                                <span class="option-text">
-                                    <h4>Health Education</h4>
-                                    <p>Workshops, disease prevention talks and wellness coaching.</p>
-                                </span>
-                            </label>
-
-                            <label class="service-option">
-                                <input type="radio" name="service" value="medical-logistics">
-                                <span class="option-radio"></span>
-                                <span class="option-icon"><i class="fas fa-truck-medical"></i></span>
-                                <span class="option-text">
-                                    <h4>Medical Logistics</h4>
-                                    <p>Medical supply delivery and equipment procurement services.</p>
-                                </span>
-                            </label>
-
-                            <label class="service-option">
-                                <input type="radio" name="service" value="telemedicine">
-                                <span class="option-radio"></span>
-                                <span class="option-icon"><i class="fas fa-laptop-medical"></i></span>
-                                <span class="option-text">
-                                    <h4>Telemedicine Consultation</h4>
-                                    <p>Video consultation with a healthcare professional</p>
-                                </span>
-                            </label>
-                        </fieldset>
-
-                        <div class="booking-nav">
-                            <div></div>
-                            <button type="button" class="btn btn-primary btn-next">Next <i
-                                    class="fas fa-arrow-right"></i></button>
-                        </div>
+                    <div class="float-label-group">
+                        <input type="text" id="book-name" name="name" placeholder=" " required autocomplete="name">
+                        <label for="book-name">Full Name</label>
+                        <span class="form-error"></span>
                     </div>
 
-                    <!-- Step 2: Date & Time -->
-                    <div class="booking-step" data-step="2">
-                        <h3 style="margin-bottom:8px;">Choose Date &amp; Time</h3>
-                        <p style="margin-bottom:28px;">Select your preferred appointment date and time slot.</p>
-
-                        <div class="float-label-group">
-                            <input type="date" id="booking-date" placeholder=" " required>
-                            <label for="booking-date">Preferred Date</label>
-                            <span class="form-error"></span>
-                        </div>
-
-                        <div class="float-label-group">
-                            <select id="booking-time" required>
-                                <option value="">Select a time slot</option>
-                                <option value="08:00 - 10:00">8:00 AM – 10:00 AM</option>
-                                <option value="10:00 - 12:00">10:00 AM – 12:00 PM</option>
-                                <option value="12:00 - 14:00">12:00 PM – 2:00 PM</option>
-                                <option value="14:00 - 16:00">2:00 PM – 4:00 PM</option>
-                                <option value="16:00 - 18:00">4:00 PM – 6:00 PM</option>
-                                <option value="18:00 - 20:00">6:00 PM – 8:00 PM (Evening)</option>
-                            </select>
-                            <label for="booking-time">Preferred Time</label>
-                            <span class="form-error"></span>
-                        </div>
-
-                        <div class="booking-nav">
-                            <button type="button" class="btn btn-secondary btn-prev"><i class="fas fa-arrow-left"></i>
-                                Back</button>
-                            <button type="button" class="btn btn-primary btn-next">Next <i
-                                    class="fas fa-arrow-right"></i></button>
-                        </div>
+                    <div class="float-label-group">
+                        <input type="tel" id="book-phone" name="phone" placeholder=" " required autocomplete="tel">
+                        <label for="book-phone">Phone Number</label>
+                        <span class="form-error"></span>
                     </div>
 
-                    <!-- Step 3: Personal Details -->
-                    <div class="booking-step" data-step="3">
-                        <h3 style="margin-bottom:8px;">Your Details</h3>
-                        <p style="margin-bottom:28px;">Please provide your contact information so we can confirm your
-                            appointment.</p>
-
-                        <div class="float-label-group">
-                            <input type="text" id="booking-name" placeholder=" " required>
-                            <label for="booking-name">Full Name</label>
-                            <span class="form-error"></span>
-                        </div>
-
-                        <div class="float-label-group">
-                            <input type="tel" id="booking-phone" placeholder=" " required>
-                            <label for="booking-phone">Phone Number</label>
-                            <span class="form-error"></span>
-                        </div>
-
-                        <div class="float-label-group">
-                            <input type="email" id="booking-email" placeholder=" " required>
-                            <label for="booking-email">Email Address</label>
-                            <span class="form-error"></span>
-                        </div>
-
-                        <div class="float-label-group">
-                            <textarea id="booking-notes" rows="3" placeholder=" "></textarea>
-                            <label for="booking-notes">Additional Notes (Optional)</label>
-                        </div>
-
-                        <div class="booking-nav">
-                            <button type="button" class="btn btn-secondary btn-prev"><i class="fas fa-arrow-left"></i>
-                                Back</button>
-                            <button type="button" class="btn btn-primary btn-next">Review Booking <i
-                                    class="fas fa-arrow-right"></i></button>
-                        </div>
+                    <div class="float-label-group">
+                        <input type="text" id="book-location" name="location" placeholder="e.g., Tarkwa, Aboso, Prestea"
+                            required>
+                        <label for="book-location">Location</label>
+                        <span class="form-error"></span>
                     </div>
 
-                    <!-- Step 4: Review & Confirm -->
-                    <div class="booking-step" data-step="4">
-                        <h3 style="margin-bottom:8px;">Review &amp; Confirm</h3>
-                        <p style="margin-bottom:28px;">Please review your booking details before confirming.</p>
-
-                        <div class="booking-summary glass-card"
-                            style="border-radius:var(--border-radius-md);padding:32px;margin-bottom:24px;">
-                            <!-- Filled dynamically by JS -->
-                        </div>
-
-                        <div class="booking-nav">
-                            <button type="button" class="btn btn-secondary btn-prev"><i class="fas fa-arrow-left"></i>
-                                Back</button>
-                            <button type="button" class="btn btn-accent btn-confirm"><i class="fas fa-check-circle"></i>
-                                Confirm Appointment</button>
-                        </div>
+                    <div class="float-label-group">
+                        <select id="book-service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Doctor Home Visit">Doctor Home Visit</option>
+                            <option value="Health Screening">Health Screening</option>
+                            <option value="Workplace Health Training">Workplace Health Training</option>
+                            <option value="Telemedicine Consultation">Telemedicine Consultation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="book-service">Service Needed</label>
+                        <span class="form-error"></span>
                     </div>
 
+                    <div class="float-label-group">
+                        <input type="text" id="book-time" name="preferred_time"
+                            placeholder="e.g., Today 2pm, Tomorrow morning" required>
+                        <label for="book-time">Preferred Time</label>
+                        <span class="form-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block booking-submit-btn">
+                        <i class="fas fa-paper-plane"></i> Request a Visit
+                    </button>
                 </form>
-            </div>
-        </section>
 
-        <!-- ======================== HELP SECTION ======================== -->
-        <section class="section fade-in">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Need Help?</span>
-                    <h2>Get in Touch Directly</h2>
-                    <p>Prefer to speak with someone? Our team is available around the clock to assist you.</p>
+                <!-- Success Message -->
+                <div id="bookingSuccess" class="booking-confirmation glass-card"
+                    style="display:none; margin-top:24px; border-radius:var(--border-radius-lg);">
+                    <div class="confirm-icon"><i class="fas fa-check"></i></div>
+                    <h3>Thank You!</h3>
+                    <p>We’ll contact you within 30 minutes to confirm your visit.</p>
                 </div>
 
-                <div class="grid-3">
-                    <div class="card card-3d glass-card fade-in" style="text-align:center;padding:36px;">
-                        <div class="icon-circle"
-                            style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h4>Call Us</h4>
-                        <p style="margin-top:8px;"><a href="tel:+233544528317">+233 544 528 317</a></p>
-                        <p><a href="tel:+233598981022">+233 598 981 022</a></p>
-                    </div>
-
-                    <div class="card card-3d glass-card fade-in" style="text-align:center;padding:36px;">
-                        <div class="icon-circle"
-                            style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-light));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4>Email Us</h4>
-                        <p style="margin-top:8px;"><a
-                                href="mailto:info@sakhealthconsult.com">info@sakhealthconsult.com</a></p>
-                    </div>
-
-                    <div class="card card-3d glass-card fade-in" style="text-align:center;padding:36px;">
-                        <div class="icon-circle"
-                            style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:1.3rem;">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h4>WhatsApp</h4>
-                        <p style="margin-top:8px;"><a href="https://wa.me/233544528317" target="_blank"
-                                rel="noopener">Chat with us on WhatsApp</a></p>
-                    </div>
-                </div>
             </div>
         </section>
 
     </main>
+
+    <!-- Booking Form Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scroll for "Scroll to Form" button
+            var scrollBtn = document.querySelector('.scroll-to-form');
+            if (scrollBtn) {
+                scrollBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var target = document.getElementById('booking-form');
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+
+            // Form submission
+            var form = document.getElementById('bookingForm');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Gather values
+                var name = document.getElementById('book-name').value.trim();
+                var phone = document.getElementById('book-phone').value.trim();
+                var location = document.getElementById('book-location').value.trim();
+                var service = document.getElementById('book-service').value;
+                var time = document.getElementById('book-time').value.trim();
+
+                // Validate
+                var valid = true;
+                var fields = [
+                    { el: document.getElementById('book-name'), val: name },
+                    { el: document.getElementById('book-phone'), val: phone },
+                    { el: document.getElementById('book-location'), val: location },
+                    { el: document.getElementById('book-service'), val: service },
+                    { el: document.getElementById('book-time'), val: time }
+                ];
+
+                fields.forEach(function (f) {
+                    var errEl = f.el.parentElement.querySelector('.form-error');
+                    if (!f.val) {
+                        valid = false;
+                        f.el.classList.add('input-error');
+                        if (errEl) errEl.textContent = 'This field is required';
+                    } else {
+                        f.el.classList.remove('input-error');
+                        if (errEl) errEl.textContent = '';
+                    }
+                });
+
+                if (!valid) return;
+
+                // Build WhatsApp message
+                var msg = 'Hello SAK Health Consult, I would like to book a visit.\n\n'
+                    + 'Name: ' + name + '\n'
+                    + 'Phone: ' + phone + '\n'
+                    + 'Location: ' + location + '\n'
+                    + 'Service: ' + service + '\n'
+                    + 'Preferred Time: ' + time;
+
+                var waUrl = 'https://wa.me/233544528317?text=' + encodeURIComponent(msg);
+
+                // Show success message
+                form.style.display = 'none';
+                document.getElementById('bookingSuccess').style.display = 'block';
+
+                // Open WhatsApp
+                window.open(waUrl, '_blank');
+            });
+        });
+    </script>
 
     <!-- ======================== FOOTER ======================== -->
     <footer class="site-footer">
@@ -358,10 +294,10 @@
                 <div class="footer-column">
                     <h4>Our Services</h4>
                     <ul class="footer-links">
-                        <li><a href="services.html">Doctor Door (Dr. D'Or)</a></li>
+                        <li><a href="services.html">Doctor Home Visits</a></li>
+                        <li><a href="services.html">Health Screening &amp; Checkups</a></li>
+                        <li><a href="services.html">Workplace Health Training</a></li>
                         <li><a href="services.html">Medical Logistics</a></li>
-                        <li><a href="services.html">Health Education</a></li>
-                        <li><a href="services.html">Health Screenings</a></li>
                         <li><a href="services.html">Telemedicine</a></li>
                     </ul>
                 </div>
